@@ -7,14 +7,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botiga Esquí</title>
+    <title>Extreme Snow</title>
     <link rel="stylesheet" href="src/css/reset.css"/>
     <link rel="stylesheet" href="src/css/bootstrap-4.6.1/bootstrap.min.css"/>
     <link rel="stylesheet" href="src/css/fontawesome/all.min.css"/>
     <link rel="stylesheet" href="src/css/style.css"/>
 </head>
 <body>
-<header>
+    <header>
         <div class="container">
             <nav class="navbar navbar-light navbar-expand-sm">
                 <!-- logo -->
@@ -31,10 +31,10 @@
                 <div class="collapse navbar-collapse justify-content-sm-end" id="burguerMenu">   
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#activitats">Activitats</a>
+                            <a class="nav-link" href="#activitats">Kits</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="competicions.xml">Competicions</a>
+                            <a class="nav-link" href="competicions.xml">Lloguer</a>
                         </li>
                         <?php if (empty($_SESSION['usuari'])) {?>
                         <li class="nav-item">
@@ -58,6 +58,126 @@
             </nav>
         </div>
     </header>
+    <section class="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid3">
+                        <div class="product-image3">
+                            <a href="#">
+                                <img class="pic-1" src="src/img/products/1-1.jpg">
+                                <img class="pic-2" src="src/img/products/1-2.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">Nou!</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Esquís adult</a></h3>
+                            <div class="price">
+                                63.50€
+                                <span>75.00€</span>
+                            </div>
+                            <ul class="rating">
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star disable"></li>
+                                <li class="fa fa-star disable"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid3">
+                        <div class="product-image3">
+                            <a href="#">
+                                <img class="pic-1" src="src/img/products/1-1.jpg">
+                                <img class="pic-2" src="src/img/products/1-2.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Esquís adult</a></h3>
+                            <div class="price">
+                                43.50€
+                            </div>
+                            <ul class="rating">
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid3">
+                        <div class="product-image3">
+                            <a href="#">
+                                <img class="pic-1" src="src/img/products/1-1.jpg">
+                                <img class="pic-2" src="src/img/products/1-2.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">Nou!</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Esquís nen</a></h3>
+                            <div class="price">
+                                63.50€
+                                <span>75.00€</span>
+                            </div>
+                            <ul class="rating">
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star disable"></li>
+                                <li class="fa fa-star disable"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid3">
+                        <div class="product-image3">
+                            <a href="#">
+                                <img class="pic-1" src="src/img/products/1-1.jpg">
+                                <img class="pic-2" src="src/img/products/1-2.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">Nou!</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Esquís nena</a></h3>
+                            <div class="price">
+                                63.50€
+                                <span>75.00€</span>
+                            </div>
+                            <ul class="rating">
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star disable"></li>
+                                <li class="fa fa-star disable"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
 
     <script src="src/js/functions.js"></script>
