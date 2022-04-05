@@ -1,0 +1,27 @@
+@font-face {
+   font-family: 'Rubik Glitch';
+   src: url("../fonts/RubikGlitch-Regular.ttf");
+}
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Rubik Glitch', cursive;
+    text-decoration: none;
+    color: #ad1f1f;
+}
+.navbar .logo img {
+    max-width: 40px;
+}
+
+
+@media screen and (min-width: 998px) {
+    .navbar .logo {
+        background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fen.opensuse.org%2Fimages%2F4%2F49%2FAmarok-logo-small.png&f=1&nofb=1') no-repeat left center;
+        background-size: contain;
+        height: 35px;
+        padding-left: 45px;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+    }
+}
+
