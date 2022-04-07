@@ -20,6 +20,11 @@
     max-width: 40px;
 }
 
+.btn-add-to-cart {
+    background-color: #e67e22;
+    color: #fff;;
+}
+
 /* Filter group */
 .filters {
     border-top: 1px solid #e3e3e3;
@@ -29,7 +34,8 @@
 .filters div{
     display: flex;
     justify-content: space-between;
-    padding: 10px 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .filters div .form-group {
     margin-bottom: 0;
@@ -67,15 +73,24 @@
     font-size: 1rem;
     margin-bottom: 3px;
 }
+.aside_block-content ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+.aside_block-content ul li label {
+    margin: 0;
+}
 
 /* Product grid */
 
 .product-grid3{
-    font-family:Roboto,
-    sans-serif;
+    font-family:Roboto, sans-serif;
     text-align:
     center;position:relative;
     z-index:1;
+    margin-bottom: 30px;
 }
 .product-grid3:before{
     content:"";
@@ -179,7 +194,7 @@
     align-items: center;
 }
 .product-grid3 .title{
-    font-size:14px;
+    font-size:1rem;
     text-transform:capitalize;
     margin:0 0 7px;
     transition:all .3s ease 0s;
@@ -218,6 +233,10 @@
 .product-grid3 .rating li.disable{
     color:#dcdcdc;
 }
+
+
+/* Media queries */
+
 @media screen and (max-width:1200px){
     .product-grid3 .rating{
         margin: 0 auto;
@@ -231,12 +250,6 @@
         margin: 0 auto;
     }
 }
-@media screen and (max-width:359px){
-    .product-grid3 .rating{
-        margin: 0 auto;
-    }
-}
-
 @media screen and (min-width: 768px) {
     .navbar .logo {
         background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fen.opensuse.org%2Fimages%2F4%2F49%2FAmarok-logo-small.png&f=1&nofb=1') no-repeat left center;
@@ -245,6 +258,14 @@
         padding-left: 45px;
         font-size: 1.6rem;
         text-transform: uppercase;
+    }
+    .filters div{
+        justify-content: flex-end;
+    }
+}
+@media screen and (max-width:359px){
+    .product-grid3 .rating{
+        margin: 0 auto;
     }
 }
 

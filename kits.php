@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse justify-content-sm-end" id="burguerMenu">   
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="kits.php">Kits</a>
+                            <a class="nav-link disabled" href="kits.php" aria-disabled="true">Kits</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Lloguer</a>
