@@ -19,7 +19,7 @@
             <nav class="navbar navbar-light navbar-expand-sm">
                 <!-- logo -->
                 <a class="logo" href="index.php">
-                    <img src="src/img/logo.png" class="d-md-none" alt="Extreme Snow">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fen.opensuse.org%2Fimages%2F4%2F49%2FAmarok-logo-small.png&f=1&nofb=1" class="d-md-none" alt="Extreme Snow">
                     <span class="d-none d-md-inline-block">Extreme Snow</span>
                 </a>
                 <!-- burguer button -->
@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse justify-content-sm-end" id="burguerMenu">   
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="kits.php">Kits</a>
+                            <a class="nav-link disabled" href="kits.php" aria-disabled="true">Kits</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Lloguer</a>
@@ -64,7 +64,7 @@
             </nav>
         </div>
     </header>
-    <section class="filters">
+    <section class="row filters">
         <div class="col-12">
             <div class="container">
                 <div class="form-group">
@@ -76,7 +76,7 @@
                         <option value="menys-preu">Més barat primer</option>
                     </select>
                 </div>
-                <button type="button" class="btn btn-outline-secondary d-md-none filterBtn">Filtres</button>
+                <button type="button" class="btn btn-outline-secondary d-md-none">Filtres</button>
             </div>
         </div>
     </section>
@@ -85,6 +85,14 @@
         <div class="container">
             <div class="row">
                 <aside class="col-md-3 aside">
+                    <div class="aside_block by_price">
+                        <div class="aside_block-title">
+                            <h3 class="title">Preu</h3>
+                        </div>
+                        <div class="aside_block-content">
+
+                        </div>
+                    </div>
                     <div class="aside_block by_brand">
                         <div class="aside_block-title">
                             <h3 class="title">Talla</h3>
@@ -92,28 +100,20 @@
                         <div class="aside_block-content">
                             <ul>
                                 <li>
-                                    <label>
-                                        Adult
-                                        <input type="checkbox" aria-label="Adult" name="adult">
-                                    </label> 
+                                    <label>Adult</label> 
+                                    <input type="checkbox" aria-label="Adult" name="adult">
                                 </li>
                                 <li>
-                                    <label>
-                                        Nen
-                                        <input type="checkbox" aria-label="Nen" name="nen">
-                                    </label>
+                                    <label>Nen</label>
+                                    <input type="checkbox" aria-label="Nen" name="nen">
                                 </li>
                                 <li>
-                                    <label>
-                                        Marca 3
-                                        <input type="checkbox" aria-label="Marca 3" name="Marca 3">
-                                    </label>
+                                    <label>Marca 3</label>
+                                    <input type="checkbox" aria-label="Marca 3" name="Marca 3">
                                 </li>
                                 <li>
-                                    <label>
-                                        Marca 4
-                                        <input type="checkbox" aria-label="Marca 4" name="Marca 4">
-                                    </label>
+                                    <label>Marca 4</label>
+                                    <input type="checkbox" aria-label="Marca 4" name="Marca 4">
                                 </li>
                             </ul>
                         </div>
@@ -125,34 +125,25 @@
                         <div class="aside_block-content">
                             <ul>
                                 <li>
-                                    <label>
-                                        Esquís
-                                        <input type="checkbox" aria-label="Esquís" name="esquis">
-                                    </label> 
+                                    <label>Esquís</label> 
+                                    <input type="checkbox" aria-label="Esquís" name="esquis">
                                 </li>
                                 <li>
-                                    <label>
-                                        Botes
-                                        <input type="checkbox" aria-label="Botes" name="botes">
-                                    </label> 
+                                    <label>Botes</label> 
+                                    <input type="checkbox" aria-label="Botes" name="botes">
                                 </li>
                                 <li>
-                                    <label>
-                                        Pals
-                                        <input type="checkbox" aria-label="Pals" name="pals">
-                                    </label>
+                                    <label>Pals</label> 
+                                    <input type="checkbox" aria-label="Pals" name="pals">
                                 </li>
                                 <li>
-                                    <label>
-                                        Kits
-                                        <input type="checkbox" aria-label="Kits" name="kits">
-                                    </label> 
+                                    <label>Kits</label> 
+                                    <input type="checkbox" aria-label="Kits" name="kits">
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </aside>
-                <div class="dark d-none"></div>
                 <div class="col-md-9">
                     <div class="row product-row-grid">
                         <div class="col-6 col-md-4">
@@ -277,7 +268,7 @@
         </div>
     </section>
 
-    <!-- Product modal -->
+    <-- Product modal -->
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
