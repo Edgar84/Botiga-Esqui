@@ -26,6 +26,14 @@ function listeners() {
             }
         });
     }
+    /* Cridar per mostrar barra lateral */
+    if(document.querySelector('.filterBtn')){
+        document.querySelector('.filterBtn').addEventListener('click', showFilters);
+        /* Cridar per ocultar barra lateral */
+        document.querySelector('.dark').addEventListener('click', hideFilters);
+        window.addEventListener('resize', hideFiltersResize);
+    }
+   
     
 } 
 
@@ -42,7 +50,7 @@ function showProduct(elem){
     }
 }
 
-/* Ordenar els productes */
+/* Ordenar els productes de la A a la Z*/
 function orderAZ(){
     const parent = document.querySelector('.product-row-grid');
     Array.from(parent.children).sort(function(a, b) {
@@ -57,6 +65,7 @@ function orderAZ(){
         parent.appendChild(ele);
     })
 }
+/* Ordenar els productes de la Z a la A*/
 function orderZA(){
     const parent = document.querySelector('.product-row-grid');
     Array.from(parent.children).sort(function(a, b) {
@@ -71,6 +80,7 @@ function orderZA(){
         parent.appendChild(ele);
     })
 }
+/* Ordenar els productes de més car a més barat*/
 function orderPriceUPtoDOWN(){
     const parent = document.querySelector('.product-row-grid');
     Array.from(parent.children).sort(function(a, b) {
@@ -79,6 +89,7 @@ function orderPriceUPtoDOWN(){
         parent.appendChild(ele);
     })
 }
+/* Ordenar els productes de la més barat a més car*/
 function orderPriceDOWNtoUP(){
     const parent = document.querySelector('.product-row-grid');
     Array.from(parent.children).sort(function(a, b) {
@@ -88,4 +99,22 @@ function orderPriceDOWNtoUP(){
     })
 }
 
+/* Mostrar barra lateral per filtres a la vista móbil */
+function showFilters(){
+    document.querySelector('aside').style.left = "0";
+    document.querySelector('.dark').classList.remove('d-none');
+    document.querySelector('body').style.overflowY = "hidden";
+}
 
+/* Amagar barra lateral per filtres a la vista móbil */
+function hideFilters(){
+    document.querySelector('aside').style.left = "-300px";
+    document.querySelector('.dark').classList.add('d-none');
+    document.querySelector('body').removeAttribute("style");
+}
+/* Amagar barra lateral per filtres si redimensionen la finestra del navegador */
+function hideFiltersResize(){
+    if(!document.querySelector('.dark').classList.contains('d-none') && window.innerWidth >= 768){
+        hideFilters();
+    }
+}

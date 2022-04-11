@@ -19,7 +19,7 @@
             <nav class="navbar navbar-light navbar-expand-sm">
                 <!-- logo -->
                 <a class="logo" href="index.php">
-                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fen.opensuse.org%2Fimages%2F4%2F49%2FAmarok-logo-small.png&f=1&nofb=1" class="d-md-none" alt="Extreme Snow">
+                    <img src="src/img/logo.png" class="d-md-none" alt="Extreme Snow">
                     <span class="d-none d-md-inline-block">Extreme Snow</span>
                 </a>
                 <!-- burguer button -->
@@ -64,7 +64,7 @@
             </nav>
         </div>
     </header>
-    <section class="row filters">
+    <section class="filters">
         <div class="col-12">
             <div class="container">
                 <div class="form-group">
@@ -76,7 +76,7 @@
                         <option value="menys-preu">Més barat primer</option>
                     </select>
                 </div>
-                <button type="button" class="btn btn-outline-secondary d-md-none">Filtres</button>
+                <button type="button" class="btn btn-outline-secondary d-md-none filterBtn">Filtres</button>
             </div>
         </div>
     </section>
@@ -85,14 +85,6 @@
         <div class="container">
             <div class="row">
                 <aside class="col-md-3 aside">
-                    <div class="aside_block by_price">
-                        <div class="aside_block-title">
-                            <h3 class="title">Preu</h3>
-                        </div>
-                        <div class="aside_block-content">
-
-                        </div>
-                    </div>
                     <div class="aside_block by_brand">
                         <div class="aside_block-title">
                             <h3 class="title">Talla</h3>
@@ -100,20 +92,28 @@
                         <div class="aside_block-content">
                             <ul>
                                 <li>
-                                    <label>Adult</label> 
-                                    <input type="checkbox" aria-label="Adult" name="adult">
+                                    <label>
+                                        Adult
+                                        <input type="checkbox" aria-label="Adult" name="adult">
+                                    </label> 
                                 </li>
                                 <li>
-                                    <label>Nen</label>
-                                    <input type="checkbox" aria-label="Nen" name="nen">
+                                    <label>
+                                        Nen
+                                        <input type="checkbox" aria-label="Nen" name="nen">
+                                    </label>
                                 </li>
                                 <li>
-                                    <label>Marca 3</label>
-                                    <input type="checkbox" aria-label="Marca 3" name="Marca 3">
+                                    <label>
+                                        Marca 3
+                                        <input type="checkbox" aria-label="Marca 3" name="Marca 3">
+                                    </label>
                                 </li>
                                 <li>
-                                    <label>Marca 4</label>
-                                    <input type="checkbox" aria-label="Marca 4" name="Marca 4">
+                                    <label>
+                                        Marca 4
+                                        <input type="checkbox" aria-label="Marca 4" name="Marca 4">
+                                    </label>
                                 </li>
                             </ul>
                         </div>
@@ -125,25 +125,34 @@
                         <div class="aside_block-content">
                             <ul>
                                 <li>
-                                    <label>Esquís</label> 
-                                    <input type="checkbox" aria-label="Esquís" name="esquis">
+                                    <label>
+                                        Esquís
+                                        <input type="checkbox" aria-label="Esquís" name="esquis">
+                                    </label> 
                                 </li>
                                 <li>
-                                    <label>Botes</label> 
-                                    <input type="checkbox" aria-label="Botes" name="botes">
+                                    <label>
+                                        Botes
+                                        <input type="checkbox" aria-label="Botes" name="botes">
+                                    </label> 
                                 </li>
                                 <li>
-                                    <label>Pals</label> 
-                                    <input type="checkbox" aria-label="Pals" name="pals">
+                                    <label>
+                                        Pals
+                                        <input type="checkbox" aria-label="Pals" name="pals">
+                                    </label>
                                 </li>
                                 <li>
-                                    <label>Kits</label> 
-                                    <input type="checkbox" aria-label="Kits" name="kits">
+                                    <label>
+                                        Kits
+                                        <input type="checkbox" aria-label="Kits" name="kits">
+                                    </label> 
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </aside>
+                <div class="dark d-none"></div>
                 <div class="col-md-9">
                     <div class="row product-row-grid">
                         <div class="col-6 col-md-4">
@@ -268,7 +277,7 @@
         </div>
     </section>
 
-    <-- Product modal -->
+    <!-- Product modal -->
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
