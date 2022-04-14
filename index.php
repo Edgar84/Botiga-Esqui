@@ -56,8 +56,16 @@
                             </a>
                         </li>  
                         <?php }?>  
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i></a>
+                        <li class="nav-item nav-item-cart-block">
+                            <a class="nav-link" href="#" class="menu-cart-link"><i class="fa fa-shopping-cart"></i></a>
+                            <div class="submenu">
+                                <ul class="menu-cart-list">
+                                    
+                                </ul>
+                                <div class="footer-menu-cart">
+                                    <button class="btn clear-cart">Buidar carret</button>
+                                </div>
+                            </div>
                         </li>        
                     </ul>
                 </div>
@@ -85,39 +93,6 @@
         <div class="container">
             <div class="row">
                 <aside class="col-md-3 aside">
-                    <div class="aside_block by_brand">
-                        <div class="aside_block-title">
-                            <h3 class="title">Talla</h3>
-                        </div>
-                        <div class="aside_block-content">
-                            <ul>
-                                <li>
-                                    <label>
-                                        Adult
-                                        <input type="checkbox" aria-label="Adult" name="adult">
-                                    </label> 
-                                </li>
-                                <li>
-                                    <label>
-                                        Nen
-                                        <input type="checkbox" aria-label="Nen" name="nen">
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        Marca 3
-                                        <input type="checkbox" aria-label="Marca 3" name="Marca 3">
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        Marca 4
-                                        <input type="checkbox" aria-label="Marca 4" name="Marca 4">
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="aside_block by_type">
                         <div class="aside_block-title">
                             <h3 class="title">Article</h3>
@@ -151,6 +126,66 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="aside_block by_brand">
+                        <div class="aside_block-title">
+                            <h3 class="title">Marca</h3>
+                        </div>
+                        <div class="aside_block-content">
+                            <ul>
+                                <li>
+                                    <label>
+                                        Atomic
+                                        <input type="checkbox" aria-label="Atomic" name="Atomic">
+                                    </label> 
+                                </li>
+                                <li>
+                                    <label>
+                                        Blizzar
+                                        <input type="checkbox" aria-label="Blizzar" name="Blizzar">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        Nordica
+                                        <input type="checkbox" aria-label="Nordica" name="Nordica">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        Lacroix
+                                        <input type="checkbox" aria-label="Lacroix" name="Lacroix">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aside_block by_brand">
+                        <div class="aside_block-title">
+                            <h3 class="title">Talla</h3>
+                        </div>
+                        <div class="aside_block-content">
+                            <ul>
+                                <li>
+                                    <label>
+                                        Adult
+                                        <input type="checkbox" aria-label="Adult" name="adult">
+                                    </label> 
+                                </li>
+                                <li>
+                                    <label>
+                                        Nen
+                                        <input type="checkbox" aria-label="Nen" name="nen">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        Nena
+                                        <input type="checkbox" aria-label="Nena" name="nena">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </aside>
                 <div class="dark d-none"></div>
                 <div class="col-md-9">
@@ -164,13 +199,16 @@
                                     </a>
                                     <ul class="social">
                                         <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
-                                    <span class="product-new-label">Nou!</span>
+                                    <span class="product-new-label">15u.</span>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title">CCEsquís adult</h3>
+                                    <h3 class="title" data-id="1">CCEsquís adult</h3>
                                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
+                                    <p class="d-none brand">Nordica</p>
+                                    <p class="d-none model">T-2000</p>
+                                    <p class="d-none size">Adult</p>
                                     <div class="price">
                                         63.50€
                                         <!-- <span>75.00€</span> -->
@@ -194,12 +232,16 @@
                                     </a>
                                     <ul class="social">
                                         <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
+                                    <span class="product-new-label">18u.</span>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title">BBBotes nen</h3>
+                                    <h3 class="title" data-id="2">BBBotes nen</h3>
                                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
+                                    <p class="d-none brand">Atomic</p>
+                                    <p class="d-none model">Aj-512</p>
+                                    <p class="d-none size">Nen</p>
                                     <div class="price">
                                         15.50€
                                     </div>
@@ -222,13 +264,16 @@
                                     </a>
                                     <ul class="social">
                                         <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
-                                    <span class="product-new-label">Nou!</span>
+                                    <span class="product-new-label">3u.</span>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title">AAEsquís adult</h3>
+                                    <h3 class="title" data-id="3">AAEsquís adult</h3>
                                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
+                                    <p class="d-none brand">Blizzar</p>
+                                    <p class="d-none model">BL Extremes</p>
+                                    <p class="d-none size">Adult</p>
                                     <div class="price">
                                         33.50€
                                     </div>
@@ -251,15 +296,18 @@
                                     </a>
                                     <ul class="social">
                                         <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
-                                    <span class="product-new-label">Nou!</span>
+                                    <span class="product-new-label">8u.</span>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title">ZZEsquís nena</h3>
+                                    <h3 class="title" data-id="4">ZZEsquís nena</h3>
                                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
+                                    <p class="d-none brand">Lacroix</p>
+                                    <p class="d-none model">Drible</p>
+                                    <p class="d-none size">Nena</p>
                                     <div class="price">
-                                        63.50€
+                                        89.00€
                                     </div>
                                     <ul class="rating">
                                         <li class="fa fa-star"></li>
@@ -294,8 +342,24 @@
                             <img src="" alt="" class="modal-product_img">
                         </div>
                         <div class="col-12 col-md-8">
-                                <h2 class="modal-product_title"></h2>
+                                <h2 class="modal-product_title" data-id=""></h2>
                                 <p class="modal-product_description"></p>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="modal-product_brand-title modal_scope-title"></th>
+                                            <td class="modal-product_brand"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="modal-product_model-title modal_scope-title"></th>
+                                            <td class="modal-product_model"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="modal-product_size-title modal_scope-title"></th>
+                                            <td class="modal-product_size"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <p class="modal-product_price"></p>
                         </div>
                     </div>
