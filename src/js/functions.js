@@ -1,6 +1,7 @@
 /* Variables globals */
 let productsInCart = []; // Creem un array buit per afegir els pruductes del carret
 
+/* Listeners */
 listeners();
 function listeners() {
     document.addEventListener('DOMContentLoaded', function(){
@@ -9,7 +10,7 @@ function listeners() {
         productsInCart = JSON.parse(localStorage.getItem('carrito')) || [];
         addToCart(productsInCart);
     });
-    /* Omplir la modal amb les dades del producte */
+    /* Crida per omplir la modal amb les dades del producte */
     document.querySelectorAll('.product-grid3 .show-product').forEach(function(product){
         product.addEventListener('click', function(){
             showProduct(product);
@@ -37,8 +38,9 @@ function listeners() {
         document.querySelector('.dark').addEventListener('click', hideFilters);
         window.addEventListener('resize', hideFiltersResize);
     }
-    /* Cridar per extrere la info de cada producte */
+    /* Cridar per extreure la info de cada producte */
      document.querySelector('.product-row-grid').addEventListener('click', readData);
+     document.querySelector('.modal-content').addEventListener('click', addProductFromModal);
      /* Crida per budiar el carret */
     document.querySelector('.clear-cart').addEventListener('click', function(){
         productsInCart = [];
@@ -46,13 +48,12 @@ function listeners() {
     });
     /* Crida per eliminar un producte del carret */
     document.querySelector('.submenu .menu-cart-list').addEventListener('click', deleteProduct);
-   
     
 } 
 
 /* Omplir la modal amb les dades del producte clicat */
 function showProduct(elem){
-    const modal = document.querySelector('.modal-body');
+    const modal = document.querySelector('.modal-content');
     const productInfo = elem.closest('.product-grid3');
 
     if(modal){
@@ -60,18 +61,18 @@ function showProduct(elem){
         modal.querySelector('.modal-product_title').innerText = productInfo.querySelector('.title').innerText;
         modal.querySelector('.modal-product_description').innerText = productInfo.querySelector('.description').innerText;
         modal.querySelector('.modal-product_price').innerText = productInfo.querySelector('.price').innerText;
-        if(productInfo.querySelector('.brand').innerText.length > 0){
-            modal.querySelector('.modal-product_brand-title').innerHTML = `<span>Marca:</span>`;
-            modal.querySelector('.modal-product_brand').innerHTML = productInfo.querySelector('.brand').innerText;
-        }
-        if(productInfo.querySelector('.size').innerText.length > 0){
-            modal.querySelector('.modal-product_model-title').innerHTML = `<span>Model:</span>`;
-            modal.querySelector('.modal-product_model').innerHTML = productInfo.querySelector('.model').innerText;
-        }
-        if(productInfo.querySelector('.size').innerText.length > 0){
-            modal.querySelector('.modal-product_size-title').innerHTML = `<span>Talla:</span>`;
-            modal.querySelector('.modal-product_size').innerHTML = productInfo.querySelector('.size').innerText;
-        }
+        modal.querySelector('.btn-add-to-cart').setAttribute('data-id', productInfo.querySelector('.title').getAttribute('data-id'));
+        modal.querySelector('.modal-product_brand-title').innerHTML = `<span>Marca:</span>`;
+        modal.querySelector('.modal-product_brand').innerHTML = productInfo.querySelector('.brand').innerText;
+        modal.querySelector('.modal-product_model-title').innerHTML = `<span>Model:</span>`;
+        modal.querySelector('.modal-product_model').innerHTML = productInfo.querySelector('.model').innerText;
+        modal.querySelector('.modal-product_size-title').innerHTML = `<span>Talla:</span>`;
+        modal.querySelector('.modal-product_size').innerHTML = productInfo.querySelector('.size').innerText;
+    }
+    if(productInfo.querySelector('.product-new-label').innerText !== '0u.'){
+        clearModalButton();
+    }else{
+        noDropModalButton();
     }
 }
 
@@ -148,8 +149,7 @@ function hideFiltersResize(){
 /* Crear objectes de cada producte al que es faci click*/
 function readData(e){
     e.preventDefault();
-    console.log(e.target.closest('.product-grid3').querySelector('.product-new-label').innerText);
-    if( (e.target.classList.contains('add-to-cart') || e.target.classList.contains('fa-shopping-cart')) && e.target.closest('.product-grid3').querySelector('.product-new-label').innerText != "0u." ){
+    if( (e.target.classList.contains('add-to-cart') || e.target.classList.contains('fa-shopping-cart') || e.target.classList.contains('btn-add-to-cart')) && e.target.closest('.product-grid3').querySelector('.product-new-label').innerText != "0u." ){
         const product = e.target.closest('.product-grid3');
         const infoProduct = {
             imatge: product.querySelector('.pic-1').src,
@@ -180,8 +180,8 @@ function readData(e){
             productsInCart = [...products];
         }else{
             /* Afegim el/els productes seleccionats dins d'un array */
-            productsInCart = [...productsInCart,infoProduct];   // Afegir productes mab Spread Operator
-            //productsInCart.push(infoProduct);                   // Afegir productes amb push
+            productsInCart = [...productsInCart,infoProduct];       // Afegir productes mab Spread Operator
+            //productsInCart.push(infoProduct);                     // Afegir productes amb push
         }
 
         addToCart(productsInCart);
@@ -189,6 +189,53 @@ function readData(e){
     }
 }
 
+/* Afegir productes al carret desde la modal */
+function addProductFromModal(e){
+    if(e.target.classList.contains('btn-add-to-cart')){
+        const idProduct = e.target.getAttribute('data-id');
+        const products = document.querySelectorAll('.product-grid3');
+        products.forEach( product => {
+            if(product.querySelector('.title').getAttribute('data-id') === idProduct && product.querySelector('.product-new-label').innerText !== "0u."){
+                product.querySelector('.fa-shopping-cart').click();
+                messageModalSuccess();
+                setTimeout(function(){
+                    document.querySelector('.message-product-ad').remove();
+                }, 1800);
+
+                /* Si no hi ha unitats del producte, es deshabilita el botó */
+                if(product.querySelector('.product-new-label').innerText === "0u."){
+                    noDropModalButton();
+                }
+            }
+        });
+    };
+}
+
+/* Habilitar botó de la modal */
+function clearModalButton(){
+    const modal = document.querySelector('.modal-content');
+    modal.querySelector('.btn-add-to-cart').removeAttribute('style');
+    modal.querySelector('.btn-add-to-cart').innerText = "Afegir al carret";
+}
+/* Deshabilitar botó de la modal */
+function noDropModalButton(){
+    const modal = document.querySelector('.modal-content');
+    modal.querySelector('.btn-add-to-cart').style = "pointer-events: none;";
+    modal.querySelector('.btn-add-to-cart').style = "cursor: no-drop;";
+    modal.querySelector('.btn-add-to-cart').innerText = "Sense stock";
+}
+
+function messageModalSuccess(){
+    const message = document.createElement('span');
+    message.className = "message-product-ad alert alert-success";
+    message.innerText = "Producte afegit";
+    document.querySelector('.modal-content').appendChild(message);
+}
+function messageModalSuccessRemove(){
+    document.querySelector('.message-product-ad').remove();
+}
+
+/* Afegir al carret el llistat de productes */
 function addToCart(productsInCart){
     let ul = document.querySelector('.nav-item-cart-block .submenu .menu-cart-list');
 

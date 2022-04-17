@@ -376,6 +376,40 @@
 .modal_scope-title {
     font-weight: 500;
 }
+.modal-content {
+    position: relative;
+}
+.modal-content .message-product-ad {
+    position: absolute;
+    opacity: 0;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    animation: success 1.5s linear;
+}
+
+@keyframes success {
+    0% {
+        opacity: 0;
+        top: 90%;
+    }
+    25% {
+        opacity: 0.5;
+        top: 80%;
+    }
+    50%{
+        opacity: 0.8;
+        top: 70%;
+    }
+    75%{
+        opacity: 1;
+        top: 60%;
+    }
+    100% {
+        opacity: 1;
+        top: 50%;
+    }
+}
 
 /* Login */
 .form-signin {

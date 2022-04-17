@@ -209,10 +209,7 @@
                                     <p class="d-none brand">Nordica</p>
                                     <p class="d-none model">T-2000</p>
                                     <p class="d-none size">Adult</p>
-                                    <div class="price">
-                                        63.50€
-                                        <!-- <span>75.00€</span> -->
-                                    </div>
+                                    <div class="price">63.50€</div>
                                     <ul class="rating">
                                         <li class="fa fa-star"></li>
                                         <li class="fa fa-star"></li>
@@ -242,9 +239,7 @@
                                     <p class="d-none brand">Atomic</p>
                                     <p class="d-none model">Aj-512</p>
                                     <p class="d-none size">Nen</p>
-                                    <div class="price">
-                                        15.50€
-                                    </div>
+                                    <div class="price">15.50€</div>
                                     <ul class="rating">
                                         <li class="fa fa-star"></li>
                                         <li class="fa fa-star"></li>
@@ -274,9 +269,7 @@
                                     <p class="d-none brand">Blizzar</p>
                                     <p class="d-none model">BL Extremes</p>
                                     <p class="d-none size">Adult</p>
-                                    <div class="price">
-                                        33.50€
-                                    </div>
+                                    <div class="price">33.50€</div>
                                     <ul class="rating">
                                         <li class="fa fa-star"></li>
                                         <li class="fa fa-star"></li>
@@ -306,9 +299,7 @@
                                     <p class="d-none brand">Lacroix</p>
                                     <p class="d-none model">Drible</p>
                                     <p class="d-none size">Nena</p>
-                                    <div class="price">
-                                        89.00€
-                                    </div>
+                                    <div class="price">89.00€</div>
                                     <ul class="rating">
                                         <li class="fa fa-star"></li>
                                         <li class="fa fa-star"></li>
@@ -339,28 +330,28 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <img src="" alt="" class="modal-product_img">
+                            <img src="" alt="" class="modal-product_img pic-1">
                         </div>
                         <div class="col-12 col-md-8">
-                                <h2 class="modal-product_title" data-id=""></h2>
-                                <p class="modal-product_description"></p>
+                                <h2 class="modal-product_title title"></h2>
+                                <p class="modal-product_description description"></p>
                                 <table class="table table-striped">
                                     <tbody>
                                         <tr>
                                             <th scope="row" class="modal-product_brand-title modal_scope-title"></th>
-                                            <td class="modal-product_brand"></td>
+                                            <td class="modal-product_brand brand"></td>
                                         </tr>
                                         <tr>
                                             <th scope="row" class="modal-product_model-title modal_scope-title"></th>
-                                            <td class="modal-product_model"></td>
+                                            <td class="modal-product_model model"></td>
                                         </tr>
                                         <tr>
                                             <th scope="row" class="modal-product_size-title modal_scope-title"></th>
-                                            <td class="modal-product_size"></td>
+                                            <td class="modal-product_size size"></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p class="modal-product_price"></p>
+                                <p class="modal-product_price price"></p>
                         </div>
                     </div>
                 </div>
