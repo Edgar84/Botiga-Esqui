@@ -292,7 +292,7 @@
                                 <div class="product-image3">
                                     <a href="#">
                                         <img class="pic-1" src="src/img/products/1-1.jpg">
-                                        <img class="pic-2" src="src/img/products/1-2.jpg">
+                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
                                     </a>
                                     <ul class="social">
                                         <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>

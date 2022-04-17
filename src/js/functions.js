@@ -1,12 +1,14 @@
 /* Variables globals */
 let productsInCart = []; // Creem un array buit per afegir els pruductes del carret
-document.addEventListener('DOMContentLoaded', function(){
-    notHasProductsInCart();
-});
-
 
 listeners();
 function listeners() {
+    document.addEventListener('DOMContentLoaded', function(){
+        notHasProductsInCart();
+        /* Carregar carret del localStorage */
+        productsInCart = JSON.parse(localStorage.getItem('carrito')) || [];
+        addToCart(productsInCart);
+    });
     /* Omplir la modal amb les dades del producte */
     document.querySelectorAll('.product-grid3 .show-product').forEach(function(product){
         product.addEventListener('click', function(){
@@ -38,7 +40,10 @@ function listeners() {
     /* Cridar per extrere la info de cada producte */
      document.querySelector('.product-row-grid').addEventListener('click', readData);
      /* Crida per budiar el carret */
-    document.querySelector('.clear-cart').addEventListener('click', emptyCart);
+    document.querySelector('.clear-cart').addEventListener('click', function(){
+        productsInCart = [];
+        emptyCart();
+    });
     /* Crida per eliminar un producte del carret */
     document.querySelector('.submenu .menu-cart-list').addEventListener('click', deleteProduct);
    
@@ -143,8 +148,8 @@ function hideFiltersResize(){
 /* Crear objectes de cada producte al que es faci click*/
 function readData(e){
     e.preventDefault();
-    
-    if(e.target.classList.contains('add-to-cart') || e.target.classList.contains('fa-shopping-cart')){
+    console.log(e.target.closest('.product-grid3').querySelector('.product-new-label').innerText);
+    if( (e.target.classList.contains('add-to-cart') || e.target.classList.contains('fa-shopping-cart')) && e.target.closest('.product-grid3').querySelector('.product-new-label').innerText != "0u." ){
         const product = e.target.closest('.product-grid3');
         const infoProduct = {
             imatge: product.querySelector('.pic-1').src,
@@ -153,13 +158,34 @@ function readData(e){
             marca: product.querySelector('.brand').textContent,
             model: product.querySelector('.model').textContent,
             talla: product.querySelector('.size').textContent,
+            preuBase: product.querySelector('.price').textContent,
             preu: product.querySelector('.price').textContent,
-            id: product.querySelector('.title').getAttribute('data-id')
+            id: product.querySelector('.title').getAttribute('data-id'),
+            quantitat: 1
         }
-        /* Afegim el/els productes seleccionats dins d'un array */
-        productsInCart.push(infoProduct);
+        /* Revisar si un producte ja existeix al carret */
+        const exist = productsInCart.some( product => product.id === infoProduct.id);
+        if(exist){
+            /* Actualitzem la quantitat i el preu del producte */
+            const products = productsInCart.map( product =>{
+                if(product.id === infoProduct.id){
+                    product.quantitat++;
+                    const priceBase = Number(product.preuBase.replace("€","")).toFixed(2);
+                    product.preu = (priceBase * Number(product.quantitat)).toFixed(2).toString() + "€";
+                    return product;     // <-- Retornem el producte amb les dades actualitzades
+                }else {
+                    return product;     // <-- Retornem els productes que no están duplicats
+                }
+            });
+            productsInCart = [...products];
+        }else{
+            /* Afegim el/els productes seleccionats dins d'un array */
+            productsInCart = [...productsInCart,infoProduct];   // Afegir productes mab Spread Operator
+            //productsInCart.push(infoProduct);                   // Afegir productes amb push
+        }
 
         addToCart(productsInCart);
+        substractUnits(product);
     }
 }
 
@@ -170,28 +196,36 @@ function addToCart(productsInCart){
         emptyCart();
     }
     
-    productsInCart.forEach( product =>{
+    productsInCart.forEach( (product, index) =>{
+
         const item = `
         <li class="cart-item">
             <div class="row">
                 <div class="col-3"><img class="cart-item_image" src="${product.imatge}"></div>
+                <span class="cart-item_quantity">${product.quantitat}</span>
                 <div class="col-5"><span class="cart-item_name" data-id="${product.id}">${product.nom}</span></div>
                 <div class="col-4"><span class="cart-item_price">${product.preu}</span></div>
             </div>
             <div class="remove">
-                <i class="fas fa-backspace" data-id="${product.id}"></i>
+                <i class="fas fa-backspace" data-index="${index}" data-id="${product.id}"></i>
             </div>
         </li>`;
         ul.innerHTML += item;
     });
 
+    /* Guardar productes al localStorage */
+    addToLocalStorage();
+
+    /* Canviar el text si hi ha productes al carret */
     hasProductsInCart();
 }
 
 /* Buidar el carret de tots els productes */
 function emptyCart(){
     document.querySelector('.nav-item-cart-block .submenu .menu-cart-list').innerHTML = "";
-    notHasProductsInCart()
+    notHasProductsInCart();
+    /* Buidar també el localStorage */
+    localStorage.clear();
 }
 
 /* Canviar el text si no hi ha productes al carret */
@@ -219,31 +253,68 @@ function hasProductsInCart(){
 /* Eliminar un producte */
 function deleteProduct(e){
     let item = e.target.closest('.cart-item');
-
     if(e.target.classList.contains('fa-backspace')){
-        productsInCart = productsInCart.filter( product => product.id !== e.target.getAttribute('data-id'));
-        addToCart(productsInCart);
+        const productId = e.target.getAttribute('data-id');
 
-        /*
-        if(document.querySelector('.nav-item-cart-block .submenu .menu-cart-list').childElementCount == 1){
-            for (var i = 0; i < productsInCart.length; i++) {
-                if (productsInCart[i].id === e.target.getAttribute('data-id')) {
-                    productsInCart = productsInCart.splice(i, 1);
-                }
-            }
-            item.remove();
-            notHasProductsInCart();
+        /* Si només te 1 d'aquest producte, actualitzem l'array i l'imprimim al carret */
+        if(Number(item.querySelector('.cart-item_quantity').innerText) === 1) {
+            productsInCart = productsInCart.filter( product => product.id !== productId );
+            addToCart(productsInCart);
         }else{
-            console.log("target: " + e.target.getAttribute('data-id'));
-            for (var i = 0; i < productsInCart.length; i++) {
-                if (productsInCart[i].id === e.target.getAttribute('data-id')) {
-                    productsInCart = productsInCart.splice(i, 1);
+            /* Si te més de 1 d'aquest producte actualitzem la quantitat i el preu del producte */
+            const products = productsInCart.map( product =>{
+                if(product.id === productId){
+                    product.quantitat--;
+                    const priceBase = Number(product.preuBase.replace("€","")).toFixed(2);
+                    product.preu = (Number(product.preu.replace("€","")).toFixed(2) - priceBase).toFixed(2).toString() + "€";
+                    return product;     // <-- Retornem el producte amb les dades actualitzades
+                }else {
+                    return product;     // <-- Retornem els productes que no están duplicats
                 }
-            }
-            item.remove();
-            
+            });
+            productsInCart = [...products];
+            addToCart(productsInCart);
         }
-        */
+
+        /* Tornem a sumar una unitat als productes de la botiga quan esborrem un producte del carret */
+        let products = document.querySelectorAll('.product-row-grid .title');
+        products.forEach(product => {
+            if(product.getAttribute('data-id') === productId){
+                let productInGrid = product.closest('.product-grid3');
+                addUnits(productInGrid);
+            }
+        });
     }
 }
 
+/* Restar un a les unitats del producte */
+function substractUnits(product){
+    let units = Number(product.querySelector('.product-new-label').innerText.replace("u.",""));
+    if(units > 0){
+        units--;
+        product.querySelector('.product-new-label').innerText = units.toString() + "u.";
+        if(product.querySelector('.add-to-cart').hasAttribute('style')){
+            product.querySelector('.add-to-cart').removeAttribute('style');
+        }
+    }
+    if(product.querySelector('.product-new-label').innerText === "0u.") {
+        product.querySelector('.add-to-cart').style = "pointer-events:none;";
+        product.querySelector('.add-to-cart').style = "cursor:no-drop;";
+        product.querySelector('.add-to-cart .fa-shopping-cart').style = "pointer-events:none;";
+    }
+}
+
+/* Sumar un a les unitats del producte */
+function addUnits(product){
+    let units = Number(product.querySelector('.product-new-label').innerText.replace("u.",""));
+    units++;
+    product.querySelector('.product-new-label').innerText = units.toString() + "u.";
+    if(product.querySelector('.add-to-cart').hasAttribute('style')){
+        product.querySelector('.add-to-cart').removeAttribute('style');
+    }
+}
+
+/* Guardar el carret al localStorage */
+function addToLocalStorage(){
+    localStorage.setItem('carrito', JSON.stringify(productsInCart));
+}
