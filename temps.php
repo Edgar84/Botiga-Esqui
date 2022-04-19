@@ -74,7 +74,7 @@
     </header>
     <section class="main">
         <div class="container">
-            <div class="results">
+            <div class="row results">
 
             </div>
         </div>
