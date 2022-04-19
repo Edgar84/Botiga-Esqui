@@ -39,8 +39,10 @@ function listeners() {
         window.addEventListener('resize', hideFiltersResize);
     }
     /* Cridar per extreure la info de cada producte */
-     document.querySelector('.product-row-grid').addEventListener('click', readData);
-     document.querySelector('.modal-content').addEventListener('click', addProductFromModal);
+    if(document.querySelector('.product-row-grid')){
+        document.querySelector('.product-row-grid').addEventListener('click', readData);
+        document.querySelector('.modal-content').addEventListener('click', addProductFromModal);
+    }
      /* Crida per budiar el carret */
     document.querySelector('.clear-cart').addEventListener('click', function(){
         productsInCart = [];

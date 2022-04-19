@@ -34,10 +34,10 @@
                             <a class="nav-link disabled" href="kits.php" aria-disabled="true">Kits</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Lloguer</a>
+                            <a class="nav-link" href="index.php">Lloguer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Temps</a>
+                            <a class="nav-link" href="temps.php">Temps</a>
                         </li>
                         <?php if (empty($_SESSION['usuari'])) {?>
                         <li class="nav-item">
@@ -181,7 +181,6 @@
                                 <div class="product-image3">
                                     <a href="#">
                                         <img class="pic-1" src="src/img/products/1-2.jpg">
-                                        <img class="pic-2" src="src/img/products/1-1.jpg">
                                     </a>
                                     <ul class="social">
                                         <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
@@ -209,7 +208,6 @@
                                 <div class="product-image3">
                                     <a href="#">
                                         <img class="pic-1" src="src/img/products/1-1.jpg">
-                                        <img class="pic-2" src="src/img/products/1-2.jpg">
                                     </a>
                                     <ul class="social">
                                         <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
@@ -238,7 +236,6 @@
                                 <div class="product-image3">
                                     <a href="#">
                                         <img class="pic-1" src="src/img/products/1-1.jpg">
-                                        <img class="pic-2" src="src/img/products/1-2.jpg">
                                     </a>
                                     <ul class="social">
                                         <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>

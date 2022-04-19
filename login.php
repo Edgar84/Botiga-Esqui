@@ -24,11 +24,12 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
         <button class="btn btn-lg btn-block" type="submit">Entrar</button>
+        <p class="text-muted">No tens compte? <a href="registre.php" class="text-decoration-none text-success">Registra't!</a></p>
     </form>
 
 
 
-    <script src="src/js/functions.js"></script>
+    
     <script src="src/js/bootstrap-4.6.1/jquery3_6_0.slim.min.js"></script>
     <script src="src/js/bootstrap-4.6.1/bootstrap.min.js"></script>
 </body>
