@@ -159,9 +159,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="aside_block by_brand">
+                    <div class="aside_block by_size size-esquis d-none">
                         <div class="aside_block-title">
-                            <h3 class="title">Talla</h3>
+                            <h3 class="title">Talla Esquís</h3>
                         </div>
                         <div class="aside_block-content">
                             <ul>
@@ -179,8 +179,89 @@
                                 </li>
                                 <li>
                                     <label>
-                                        Nena
-                                        <input type="checkbox" aria-label="Nena" name="nena">
+                                        Infant
+                                        <input type="checkbox" aria-label="Infant" name="infant">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aside_block by_size size-botes d-none">
+                        <div class="aside_block-title">
+                            <h3 class="title">Talla Botes</h3>
+                        </div>
+                        <div class="aside_block-content">
+                            <ul>
+                                <li>
+                                    <label>
+                                        Adult
+                                        <input type="checkbox" aria-label="Adult" name="adult">
+                                    </label> 
+                                </li>
+                                <li>
+                                    <label>
+                                        Nen
+                                        <input type="checkbox" aria-label="Nen" name="nen">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        Infant
+                                        <input type="checkbox" aria-label="Infant" name="infant">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aside_block by_size size-pals d-none">
+                        <div class="aside_block-title">
+                            <h3 class="title">Talla Pals</h3>
+                        </div>
+                        <div class="aside_block-content">
+                            <ul>
+                                <li>
+                                    <label>
+                                        Adult
+                                        <input type="checkbox" aria-label="24" name="adult">
+                                    </label> 
+                                </li>
+                                <li>
+                                    <label>
+                                        Nen
+                                        <input type="checkbox" aria-label="Nen" name="nen">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        Infant
+                                        <input type="checkbox" aria-label="Infant" name="infant">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="aside_block by_size size-kits d-none">
+                        <div class="aside_block-title">
+                            <h3 class="title">Talla Kits</h3>
+                        </div>
+                        <div class="aside_block-content">
+                            <ul>
+                                <li>
+                                    <label>
+                                        Adult
+                                        <input type="checkbox" aria-label="24" name="adult">
+                                    </label> 
+                                </li>
+                                <li>
+                                    <label>
+                                        Nen
+                                        <input type="checkbox" aria-label="Nen" name="nen">
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        Infant
+                                        <input type="checkbox" aria-label="Infant" name="infant">
                                     </label>
                                 </li>
                             </ul>
@@ -203,7 +284,7 @@
                                     <span class="product-new-label">15u.</span>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title" data-id="1">CCEsquís adult</h3>
+                                    <h3 class="title" data-id="1">CC Esquís adult</h3>
                                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
                                     <p class="d-none brand">Nordica</p>
                                     <p class="d-none model">T-2000</p>
@@ -232,7 +313,7 @@
                                     <span class="product-new-label">18u.</span>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title" data-id="2">BBBotes nen</h3>
+                                    <h3 class="title" data-id="2">BB Botes nen</h3>
                                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
                                     <p class="d-none brand">Atomic</p>
                                     <p class="d-none model">Aj-512</p>
@@ -261,7 +342,7 @@
                                     <span class="product-new-label">3u.</span>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title" data-id="3">AAEsquís adult</h3>
+                                    <h3 class="title" data-id="3">AA Esquís adult</h3>
                                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
                                     <p class="d-none brand">Blizzar</p>
                                     <p class="d-none model">BL Extremes</p>
@@ -291,7 +372,7 @@
                                     <span class="product-new-label">8u.</span>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title" data-id="4">ZZEsquís nena</h3>
+                                    <h3 class="title" data-id="4">ZZ Esquís nena</h3>
                                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
                                     <p class="d-none brand">Lacroix</p>
                                     <p class="d-none model">Drible</p>
@@ -307,7 +388,127 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-6 col-md-4">
+                            <div class="product-grid3">
+                                <div class="product-image3">
+                                    <a href="#">
+                                        <img class="pic-1" src="src/img/products/1-1.jpg">
+                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
+                                    </a>
+                                    <ul class="social">
+                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                    <span class="product-new-label">5u.</span>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title" data-id="4">Pals Adult</h3>
+                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
+                                    <p class="d-none brand">Lacroix</p>
+                                    <p class="d-none model">Drible</p>
+                                    <p class="d-none size">Adult</p>
+                                    <div class="price">89.00€</div>
+                                    <ul class="rating">
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star disable"></li>
+                                        <li class="fa fa-star disable"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="product-grid3">
+                                <div class="product-image3">
+                                    <a href="#">
+                                        <img class="pic-1" src="src/img/products/1-1.jpg">
+                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
+                                    </a>
+                                    <ul class="social">
+                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                    <span class="product-new-label">5u.</span>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title" data-id="4">Pals Nena</h3>
+                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
+                                    <p class="d-none brand">Lacroix</p>
+                                    <p class="d-none model">Drible</p>
+                                    <p class="d-none size">Nena</p>
+                                    <div class="price">22.00€</div>
+                                    <ul class="rating">
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star disable"></li>
+                                        <li class="fa fa-star disable"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="product-grid3">
+                                <div class="product-image3">
+                                    <a href="#">
+                                        <img class="pic-1" src="src/img/products/1-1.jpg">
+                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
+                                    </a>
+                                    <ul class="social">
+                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                    <span class="product-new-label">5u.</span>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title" data-id="4">Kits Adult</h3>
+                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
+                                    <p class="d-none brand">Lacroix</p>
+                                    <p class="d-none model">Drible</p>
+                                    <p class="d-none size">Adult</p>
+                                    <div class="price">35.00€</div>
+                                    <ul class="rating">
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star disable"></li>
+                                        <li class="fa fa-star disable"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="product-grid3">
+                                <div class="product-image3">
+                                    <a href="#">
+                                        <img class="pic-1" src="src/img/products/1-1.jpg">
+                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
+                                    </a>
+                                    <ul class="social">
+                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                    <span class="product-new-label">5u.</span>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title" data-id="4">Kits Infant</h3>
+                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
+                                    <p class="d-none brand">Lacroix</p>
+                                    <p class="d-none model">Drible</p>
+                                    <p class="d-none size">Infant</p>
+                                    <div class="price">35.00€</div>
+                                    <ul class="rating">
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star disable"></li>
+                                        <li class="fa fa-star disable"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End row product-grid -->
                 </div>
             </div>
         </div>

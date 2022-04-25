@@ -50,7 +50,8 @@ function listeners() {
     });
     /* Crida per eliminar un producte del carret */
     document.querySelector('.submenu .menu-cart-list').addEventListener('click', deleteProduct);
-    
+    /* Crida per filtrar productes per categories */
+    document.querySelector('.aside').addEventListener('click', filterProducts);
 } 
 
 /* Omplir la modal amb les dades del producte clicat */
@@ -366,4 +367,74 @@ function addUnits(product){
 /* Guardar el carret al localStorage */
 function addToLocalStorage(){
     localStorage.setItem('carrito', JSON.stringify(productsInCart));
+}
+
+/* Filtrar els productes per categories */
+function filterProducts(e){
+    const aside = e.target.closest('.aside');
+    let products = document.querySelectorAll('.product-grid3');
+    let inputs = Array.from(aside.querySelectorAll('input'));
+    let titles = document.querySelectorAll('.product-row-grid .title');
+    
+    for(let i=0; i<=inputs.length -1; i++){
+        if(inputs[i].checked){
+            console.log(inputs[i].getAttribute('aria-label'));
+        }
+    }
+
+
+
+
+
+
+    /*
+    //console.log(titles);
+    //let compare;
+
+    // if(e.target.getAttribute('aria-label')){
+    //     compare = e.target.getAttribute('aria-label');
+    // }else{
+    //     compare = e.target.firstElementChild.getAttribute('aria-label');
+    // }
+    let compares = ["Esquís","Botas"];
+    inputs.forEach(input => {
+        if(input.checked){
+            //let compare = input.getAttribute('aria-label');
+            
+            products.forEach( product => {
+                if(product.parentElement.classList.contains('d-none')){
+                    product.parentElement.classList.remove('d-none');
+                }
+            // console.log(compare[0]);
+            // console.log(product.querySelector('.title').innerText);
+            // console.log( ((product.querySelector('.title').innerText).includes(compare[0])) );
+                compares.forEach(compare => {
+                    console.log(product.querySelector('.title').innerText);
+                    console.log(compare);
+                    console.log(product.querySelector('.title').innerText.includes(compare));
+                    if(e.target.closest('.aside_block').classList.contains('by_type')){
+                        if( product.querySelector('.title').innerText.includes(compare)  ){
+                            product.parentElement.classList.add('d-none');
+                        }
+                    }
+                })
+                
+                // if(e.target.closest('.aside_block').classList.contains('by_brand')){
+                //     if(!product.querySelector('.brand').innerText.includes(compare)){
+                //         product.parentElement.classList.add('d-none');
+                //     }
+                // }
+                
+            });
+        }
+        
+    });
+
+    //console.log(compare);
+    */
+
+    
+
+
+
 }
