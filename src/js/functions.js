@@ -1,5 +1,6 @@
 /* Variables globals */
 let productsInCart = []; // Creem un array buit per afegir els pruductes del carret
+let checkeds = [];
 
 /* Listeners */
 listeners();
@@ -51,7 +52,7 @@ function listeners() {
     /* Crida per eliminar un producte del carret */
     document.querySelector('.submenu .menu-cart-list').addEventListener('click', deleteProduct);
     /* Crida per filtrar productes per categories */
-    document.querySelector('.aside').addEventListener('click', filterProducts);
+    document.querySelector('.aside').addEventListener('click', getCheckboxs);
 } 
 
 /* Omplir la modal amb les dades del producte clicat */
@@ -370,71 +371,80 @@ function addToLocalStorage(){
 }
 
 /* Filtrar els productes per categories */
-function filterProducts(e){
-    const aside = e.target.closest('.aside');
-    let products = document.querySelectorAll('.product-grid3');
-    let inputs = Array.from(aside.querySelectorAll('input'));
-    let titles = document.querySelectorAll('.product-row-grid .title');
+function getCheckboxs(e){
+    let checkboxes = [...document.querySelectorAll('.aside input[type=checkbox]')];
     
-    for(let i=0; i<=inputs.length -1; i++){
-        if(inputs[i].checked){
-            console.log(inputs[i].getAttribute('aria-label'));
-        }
+    if(checkeds.length > 0){
+        checkeds = [];
     }
 
-
-
-
-
-
-    /*
-    //console.log(titles);
-    //let compare;
-
-    // if(e.target.getAttribute('aria-label')){
-    //     compare = e.target.getAttribute('aria-label');
-    // }else{
-    //     compare = e.target.firstElementChild.getAttribute('aria-label');
-    // }
-    let compares = ["Esquís","Botas"];
-    inputs.forEach(input => {
-        if(input.checked){
-            //let compare = input.getAttribute('aria-label');
-            
-            products.forEach( product => {
-                if(product.parentElement.classList.contains('d-none')){
-                    product.parentElement.classList.remove('d-none');
-                }
-            // console.log(compare[0]);
-            // console.log(product.querySelector('.title').innerText);
-            // console.log( ((product.querySelector('.title').innerText).includes(compare[0])) );
-                compares.forEach(compare => {
-                    console.log(product.querySelector('.title').innerText);
-                    console.log(compare);
-                    console.log(product.querySelector('.title').innerText.includes(compare));
-                    if(e.target.closest('.aside_block').classList.contains('by_type')){
-                        if( product.querySelector('.title').innerText.includes(compare)  ){
-                            product.parentElement.classList.add('d-none');
-                        }
-                    }
-                })
-                
-                // if(e.target.closest('.aside_block').classList.contains('by_brand')){
-                //     if(!product.querySelector('.brand').innerText.includes(compare)){
-                //         product.parentElement.classList.add('d-none');
-                //     }
-                // }
-                
-            });
+    checkboxes.forEach(checkbox => {
+        if(checkbox.checked) {
+            checkeds = [...checkeds,checkbox.getAttribute('aria-label')];
         }
-        
+    })
+    checkeds = checkeds.filter((item,index) => checkeds.indexOf(item) === index);
+    if(e.target.closest('.aside_block').classList.contains('by_type')){
+        filterProducts();
+    }
+    if(e.target.closest('.aside_block').classList.contains('by_brand')){
+        filterBrand();
+    }
+    cleanFilters(checkeds);
+}
+
+function filterProducts(){
+    let productGridTitles = document.querySelectorAll('.product-grid3 .title');
+    
+    productGridTitles.forEach( product => {
+        product.closest('.product-grid3').parentElement.classList.add('d-none');
+
+        checkeds.forEach( check => {
+            if(product.innerText.indexOf(check) > -1) {
+                product.closest('.product-grid3').parentElement.classList.remove('d-none');
+                //filterBrand();
+            }
+        });
     });
 
-    //console.log(compare);
-    */
-
-    
-
-
-
 }
+
+function filterBrand(){
+    let productGridBrand = document.querySelectorAll('.product-grid3 .brand');
+    //let articleCheckboxes = [...document.querySelectorAll('.aside .by_type input[type=checkbox]')];
+
+    productGridBrand.forEach( brand => {
+        //articleCheckboxes.forEach( article => {
+        //    if(article.checked) {
+        //        checkeds.forEach( check => {
+        //            if(brand.innerText.indexOf(check) > -1 && ) {
+        //                brand.closest('.product-grid3').parentElement.classList.remove('d-none');
+        //            }
+        //        });
+        //    }else{
+                brand.closest('.product-grid3').parentElement.classList.add('d-none');
+
+                checkeds.forEach( check => {
+                    if(brand.innerText.indexOf(check) > -1) {
+                        brand.closest('.product-grid3').parentElement.classList.remove('d-none');
+                    }
+                });
+        //    }
+       // })
+
+    });
+}
+
+function cleanFilters(checkeds){
+    
+    if(checkeds.length === 0){
+        let products = document.querySelectorAll('.product-grid3');
+        products.forEach(product => {
+            if(product.parentElement.classList.contains('d-none')){
+                product.parentElement.classList.remove('d-none');
+            }
+        });
+    }
+      
+}
+
