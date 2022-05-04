@@ -1,4 +1,7 @@
 <?php
+ session_start();
+
+ include ('./functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +40,9 @@
                             <a class="nav-link disabled" href="index.php">Lloguer</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="temps.php">Ubicacio Monitor</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="temps.php">Temps</a>
                         </li>
                         <?php if (empty($_SESSION['usuari'])) {?>
@@ -45,7 +51,7 @@
                         </li>
                         <?php } else {?>
                         <li class="nav-item">
-                            <a class="nav-link" href="fitxa.php"><i class="fa fa-user" aria-hidden="true"></i><?php echo ' ' .$_SESSION['nom'] . ' ' . $_SESSION['cognom'] ?></a>
+                            <a class="nav-link" href="fitxa.php"><i class="fa fa-user" aria-hidden="true"></i><?php echo ' ' .$_SESSION['usuari'] ?></a>
                         </li>
                         <?php }?>
                         
@@ -270,244 +276,11 @@
                 </aside>
                 <div class="dark d-none"></div>
                 <div class="col-md-9">
-                    <div class="row product-row-grid">
-                        <div class="col-6 col-md-4">
-                            <div class="product-grid3">
-                                <div class="product-image3">
-                                    <a href="#">
-                                        <img class="pic-1" src="src/img/products/1-1.jpg">                                        
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                    <span class="product-new-label">15u.</span>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title" data-id="1">CC Esquís adult</h3>
-                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                                    <p class="d-none brand">Nordica</p>
-                                    <p class="d-none model">T-2000</p>
-                                    <p class="d-none size">Adult</p>
-                                    <div class="price">63.50€</div>
-                                    <ul class="rating">
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star disable"></li>
-                                        <li class="fa fa-star disable"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="product-grid3">
-                                <div class="product-image3">
-                                    <a href="#">
-                                        <img class="pic-1" src="src/img/products/1-2.jpg">                                        
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                    <span class="product-new-label">18u.</span>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title" data-id="2">BB Botes nen</h3>
-                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                                    <p class="d-none brand">Atomic</p>
-                                    <p class="d-none model">Aj-512</p>
-                                    <p class="d-none size">Nen</p>
-                                    <div class="price">15.50€</div>
-                                    <ul class="rating">
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="product-grid3">
-                                <div class="product-image3">
-                                    <a href="#">
-                                        <img class="pic-1" src="src/img/products/1-1.jpg">                                        
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                    <span class="product-new-label">3u.</span>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title" data-id="3">AA Esquís adult</h3>
-                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                                    <p class="d-none brand">Blizzar</p>
-                                    <p class="d-none model">BL Extremes</p>
-                                    <p class="d-none size">Adult</p>
-                                    <div class="price">33.50€</div>
-                                    <ul class="rating">
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star disable"></li>
-                                        <li class="fa fa-star disable"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="product-grid3">
-                                <div class="product-image3">
-                                    <a href="#">
-                                        <img class="pic-1" src="src/img/products/1-1.jpg">
-                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                    <span class="product-new-label">8u.</span>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title" data-id="4">ZZ Esquís nena</h3>
-                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                                    <p class="d-none brand">Lacroix</p>
-                                    <p class="d-none model">Drible</p>
-                                    <p class="d-none size">Nena</p>
-                                    <div class="price">89.00€</div>
-                                    <ul class="rating">
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star disable"></li>
-                                        <li class="fa fa-star disable"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="product-grid3">
-                                <div class="product-image3">
-                                    <a href="#">
-                                        <img class="pic-1" src="src/img/products/1-1.jpg">
-                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                    <span class="product-new-label">5u.</span>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title" data-id="4">Pals Adult</h3>
-                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                                    <p class="d-none brand">Lacroix</p>
-                                    <p class="d-none model">Drible</p>
-                                    <p class="d-none size">Adult</p>
-                                    <div class="price">89.00€</div>
-                                    <ul class="rating">
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star disable"></li>
-                                        <li class="fa fa-star disable"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="product-grid3">
-                                <div class="product-image3">
-                                    <a href="#">
-                                        <img class="pic-1" src="src/img/products/1-1.jpg">
-                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                    <span class="product-new-label">5u.</span>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title" data-id="4">Pals Nena</h3>
-                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                                    <p class="d-none brand">Lacroix</p>
-                                    <p class="d-none model">Drible</p>
-                                    <p class="d-none size">Nena</p>
-                                    <div class="price">22.00€</div>
-                                    <ul class="rating">
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star disable"></li>
-                                        <li class="fa fa-star disable"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="product-grid3">
-                                <div class="product-image3">
-                                    <a href="#">
-                                        <img class="pic-1" src="src/img/products/1-1.jpg">
-                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                    <span class="product-new-label">5u.</span>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title" data-id="4">Kits Adult</h3>
-                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                                    <p class="d-none brand">Lacroix</p>
-                                    <p class="d-none model">Drible</p>
-                                    <p class="d-none size">Adult</p>
-                                    <div class="price">35.00€</div>
-                                    <ul class="rating">
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star disable"></li>
-                                        <li class="fa fa-star disable"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="product-grid3">
-                                <div class="product-image3">
-                                    <a href="#">
-                                        <img class="pic-1" src="src/img/products/1-1.jpg">
-                                        <!-- <img class="pic-2" src="src/img/products/1-2.jpg"> -->
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-toggle="modal" class="show-product" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                    <span class="product-new-label">5u.</span>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title" data-id="4">Kits Infant</h3>
-                                    <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                                    <p class="d-none brand">Lacroix</p>
-                                    <p class="d-none model">Drible</p>
-                                    <p class="d-none size">Infant</p>
-                                    <div class="price">35.00€</div>
-                                    <ul class="rating">
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star"></li>
-                                        <li class="fa fa-star disable"></li>
-                                        <li class="fa fa-star disable"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row product-row-grid"> 
+                        
+                    <?php
+                    mostrarProductes();
+                    ?>
                     </div> <!-- End row product-grid -->
                 </div>
             </div>
