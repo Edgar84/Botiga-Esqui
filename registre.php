@@ -177,10 +177,76 @@ if (isset($_POST['register'])) {
     </form>
 
 
-
     <?php
-    
+    session_start();
+    include('connectBD.php');
+    if (isset($_POST['register'])) {
+
+        $nom = $_POST['nom'];
+        $cognom = $_POST['cognom'];
+        $dni = $_POST['dni'];
+        $telefon = $_POST['telefon'];
+        $email = $_POST['email'];
+        $user = $_POST['usuari'];
+        $password = $_POST['password'];
+        $password_hash = md5($password);
+
+
+        $mobileregex = "/^6[0-9]{8}$/";
+
+        $comprovacioTelefon = True;
+
+
+        if (preg_match($mobileregex, $telefon) == false) {
+            echo '<p class="alert alert-danger ">Format telefon incorrecte</p>';
+            $comprovacioTelefon = false;
+        }
+
+        $query = $connection->prepare("SELECT * FROM client WHERE email=:email");
+        $query->bindParam("email", $email, PDO::PARAM_STR);
+        $query->execute();
+        if ($query->rowCount() > 0) {
+            echo '<p class="alert alert-danger">Hi ha un usuari amb aquet correu</p>';
+        }
+        $query2 = $connection->prepare("SELECT * FROM client WHERE dni=:dni");
+        $query2->bindParam("dni", $dni, PDO::PARAM_STR);
+        $query2->execute();
+        if ($query2->rowCount() > 0) {
+            echo '<p class="alert alert-danger">Hi ha un usuari amb aquet dni</p>';
+        }
+        $query3 = $connection->prepare("SELECT * FROM client WHERE usuari=:user");
+        $query3->bindParam("user", $user, PDO::PARAM_STR);
+        $query3->execute();
+        if ($query3->rowCount() > 0) {
+            echo '<p class="alert alert-danger ">Hi ha un usuari amb aquet login</p>';
+        }
+
+
+
+        if ($query->rowCount() == 0 and $query2->rowCount() == 0  and $query3->rowCount() == 0 and $comprovacioTelefon == true) {
+            $query = $connection->prepare("INSERT INTO client(dni,nom,cognom,telefon,email,usuari,pass) VALUES (:dni,:nom,:cognom,:telefon,:email,:usuari,:password_hash)");
+
+            $query->bindParam("dni", $dni, PDO::PARAM_STR);
+            $query->bindParam("nom", $nom, PDO::PARAM_STR);
+            $query->bindParam("cognom", $cognom, PDO::PARAM_STR);
+            $query->bindParam("telefon", $telefon, PDO::PARAM_STR);
+            $query->bindParam("email", $email, PDO::PARAM_STR);
+            $query->bindParam("usuari", $usuari, PDO::PARAM_STR);
+            $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
+
+            $result = $query->execute();
+            if ($result) {
+                echo '<p class="success">Usuari registrat</p>';
+            } else {
+                echo '<p class="error">Dades Incorrectes</p>';
+            }
+        }
+    }
     ?>
+
+
+
+   
 
 
 

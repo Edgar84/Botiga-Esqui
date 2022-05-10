@@ -19,9 +19,6 @@ session_start();
 <body>
 
 
-
-
-
     <div class="container">
         <nav class="navbar navbar-light navbar-expand-sm">
             <!-- logo -->
@@ -176,22 +173,5 @@ session_start();
 
 
 </body>
-
-<script>
-    mostrar();
-
-    function mostrar() {
-
-
-        let varibleString1 = 'asd';
-        let varibleString = '\'' + varibleString1 + '\'';
-
-        let concadenar;
-        // concadenar.contat(varibleString1, varibleString, varibleString1);
-        console.log(varibleString);
-
-    }
-</script>
-
 
 </html>
