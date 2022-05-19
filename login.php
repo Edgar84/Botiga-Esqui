@@ -17,8 +17,8 @@
             <img src="src/img/logo.png" alt="Extreme Snow">
             <span class=""> Snow</span>
         </a>
-        <label for="inputEmail" class="sr-only">Email</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="" name="email">
+        <label for="inputUser" class="sr-only">Email</label>
+        <input type="text" id="inputUser" class="form-control" placeholder="Usuari" required="" autofocus="" name="user">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="password">
         <button class="btn btn-lg btn-block" type="submit" name="login" value="login">Entrar</button>
