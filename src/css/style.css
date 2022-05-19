@@ -258,7 +258,8 @@
     display:block;
 }
 .product-grid3 .product-image3 img{
-    width:100%;height:auto;
+    width:100%;
+    height:300px;
 }
 .product-grid3 .pic-1{
     opacity:1;
@@ -336,6 +337,7 @@
     align-items: center;
 }
 .product-grid3 .title{
+    font-family: ubuntu;
     font-size:1rem;
     text-transform:capitalize;
     margin:0 0 7px;
@@ -344,7 +346,7 @@
 .product-grid3 .title a{
     color:#414141}
 .product-grid3 .price{
-    color:#000;
+    color:#c91717;
     font-size:16px;
     letter-spacing:1px;
     font-weight:600;
@@ -359,6 +361,10 @@
     text-align:left;
     display:inline-block;
     margin-top:-2px;
+}
+.product-grid3 .price + .size {
+    font-size: 14px;
+    color: #a7a7a7;
 }
 .product-grid3 .rating{
     padding:0;
@@ -395,6 +401,23 @@
 }
 .modal-content {
     position: relative;
+}
+.modal-content .table.table-striped tbody{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.modal-content .table.table-striped tbody tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.modal-content .table.table-striped td {
+    text-align: right;
+}
+.modal-content .table.table-striped td, .modal-content .table.table-striped th {
+    width: 50%;
+    border: none;
 }
 .modal-content .message-product-ad {
     position: absolute;
@@ -452,6 +475,18 @@
     color: #e67e22;
     border: 2px solid #e67e22;
 }
+.form-signin .checkbox-card{
+    padding: 0 6px;
+}
+.form-signin .checkbox-card .checkbox label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.form-signin .checkbox-card .checkbox label input.checkme {
+    margin: 0px;
+}
 .logo-login {
     display: flex;
     justify-content: center;
@@ -466,6 +501,9 @@
 .logo-login img {
     width: 50px;
     margin: 0 5px;
+}
+.alert-danger {
+    font-size: 12px;
 }
 
 /* Temps */

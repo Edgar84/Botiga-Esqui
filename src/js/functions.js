@@ -380,7 +380,7 @@ function getCheckboxs(e){
 
     checkboxes.forEach(checkbox => {
         if(checkbox.checked) {
-            checkeds = [...checkeds,checkbox.getAttribute('aria-label')];
+            checkeds = [...checkeds,checkbox.getAttribute('aria-label').normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase()]; // normalize per treure els accents
         }
     })
     checkeds = checkeds.filter((item,index) => checkeds.indexOf(item) === index);
@@ -395,12 +395,13 @@ function getCheckboxs(e){
 
 function filterProducts(){
     let productGridTitles = document.querySelectorAll('.product-grid3 .title');
+
     
     productGridTitles.forEach( product => {
         product.closest('.product-grid3').parentElement.classList.add('d-none');
 
         checkeds.forEach( check => {
-            if(product.innerText.indexOf(check) > -1) {
+            if(product.innerText.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase().indexOf(check) > -1) {
                 product.closest('.product-grid3').parentElement.classList.remove('d-none');
                 //filterBrand();
             }

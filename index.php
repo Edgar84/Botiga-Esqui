@@ -40,7 +40,7 @@
                             <a class="nav-link disabled" href="index.php">Lloguer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="temps.php">Ubicacio Monitor</a>
+                            <a class="nav-link" href="#">Ubicació</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="temps.php">Temps</a>
