@@ -26,15 +26,13 @@ function mostrarProductes()
                     <span class="product-new-label"><?php echo $row['quantitat']; ?>u.</span>
                 </div>
                 <div class="product-content">
-                    <h3 class="title" data-id="<?php echo $row['id']; ?>"><?php echo $row['tipo']; ?></h3>
+                    <h3 class="title" data-id="<?php echo $row['id']; ?>"><span class="d-none"><?php echo $row['tipo']; ?></span> <?php echo $row['marca']; ?> <?php echo $row['model']; ?></h3>
                     <p class="d-none description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus possimus a modi! Quam beatae, repellendus unde eligendi tempora saepe? Eos quidem nobis minima accusamus veritatis error, illo aliquid corporis ipsum.</p>
-                    <p class="d-none brand">><?php echo $row['marca']; ?></p>
-                    <p class="d-none model">><?php echo $row['model']; ?></p>
-                    <p class="d-none size">><?php echo $row['talla']; ?></p>
+                    <p class="d-none brand"><?php echo $row['marca']; ?></p>
+                    <p class="d-none model"><?php echo $row['model']; ?></p>
+                    <p class="d-none size"><?php echo $row['talla']; ?></p>
                     <div class="price"><?php echo $row['preu']; ?>€</div>
-                    <ul class="rating">
-
-                    </ul>
+                    <div class="size">Talla: <?php echo $row['talla']; ?></div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+include ('./functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +38,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Lloguer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ubicació</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="temps.php">Temps</a>
