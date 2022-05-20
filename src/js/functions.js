@@ -1,6 +1,6 @@
 /* Variables globals */
-let productsInCart = []; // Creem un array buit per afegir els pruductes del carret
-let checkeds = [];
+let productsInCart = []; // Creem un array buit per afegir els productes del carret
+let checkeds = [];      // Creem un array buit per afegir els checkbox seleccionats per poder filtrar
 
 /* Listeners */
 listeners();
@@ -52,7 +52,10 @@ function listeners() {
     /* Crida per eliminar un producte del carret */
     document.querySelector('.submenu .menu-cart-list').addEventListener('click', deleteProduct);
     /* Crida per filtrar productes per categories */
-    document.querySelector('.aside').addEventListener('click', getCheckboxs);
+    if(document.querySelector('.aside')){
+        document.querySelector('.aside').addEventListener('click', getCheckboxs);
+    }
+    
 } 
 
 /* Omplir la modal amb les dades del producte clicat */
@@ -380,7 +383,7 @@ function getCheckboxs(e){
 
     checkboxes.forEach(checkbox => {
         if(checkbox.checked) {
-            checkeds = [...checkeds,checkbox.getAttribute('aria-label').normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase()]; // normalize per treure els accents
+            checkeds = [...checkeds,checkbox.getAttribute('aria-label').normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase()]; // normalize/replace per treure els accents
         }
     })
     checkeds = checkeds.filter((item,index) => checkeds.indexOf(item) === index);
@@ -388,7 +391,7 @@ function getCheckboxs(e){
         filterProducts();
     }
     if(e.target.closest('.aside_block').classList.contains('by_brand')){
-        filterBrand();
+        /*filterBrand();*/
     }
     cleanFilters(checkeds);
 }
