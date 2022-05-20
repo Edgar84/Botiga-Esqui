@@ -34,9 +34,6 @@ include ('./functions.php');
                 <div class="collapse navbar-collapse justify-content-sm-end" id="burguerMenu">   
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="kits.php">Kits</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="index.php">Lloguer</a>
                         </li>
                         <li class="nav-item">
