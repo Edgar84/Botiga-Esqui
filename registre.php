@@ -146,10 +146,10 @@ if (isset($_POST['register'])) {
         <div class="checkbox-card">
             <div class="checkbox">
                 <label>Soc federat
-                    <input type="checkbox" class="checkme">
+                    <input type="checkbox" class="checkme checkme-fed">
                 </label>
             </div>
-            <div class="passport-box">
+            <div class="passport-box passport-box-fed">
                 <input type="text" id="nivell" class="form-control" placeholder="Nivell" name="nivell">
                 <input type="date" id="data_caducitat" class="form-control" placeholder="Data Caducitat" name="data_caducitat">
                 <input type="text" id="num_federacio" class="form-control" placeholder="Num Federacio" name="num_federacio">
@@ -162,15 +162,17 @@ if (isset($_POST['register'])) {
         <div class="checkbox-card">
             <div class="checkbox">
                 <label>Soc familia numerosa
-                    <input type="checkbox" class="checkme">
+                    <input type="checkbox" class="checkme checkme-fam">
                 </label>
             </div>
-            <div class="passport-box">
+            <div class="passport-box passport-box-fam">
                 <input type="text" id="num_familia_numerosa" class="form-control" placeholder="Num Familia Numerosa" name="num_familia_numerosa" >
                 <input type="date" id="data_caducitat_familia" class="form-control" placeholder="Data Caducitat Familia" name="data_caducitat_familia">
             </div>
         </div> 
+
         <?php echo $loginSuccess ?>
+
         <hr class="text-info">
 
         <button class="btn btn-lg btn-block" type="submit" name="register" value="register">Registre</button>
@@ -178,92 +180,27 @@ if (isset($_POST['register'])) {
         <button class="d-none no-alert">No alert</button>
     </form>
 
-
-    <?php
-    /*
-    session_start();
-    include('connectBD.php');
-    if (isset($_POST['register'])) {
-
-        $nom = $_POST['nom'];
-        $cognom = $_POST['cognom'];
-        $dni = $_POST['dni'];
-        $telefon = $_POST['telefon'];
-        $email = $_POST['email'];
-        $user = $_POST['usuari'];
-        $password = $_POST['password'];
-        $password_hash = md5($password);
-
-
-        $mobileregex = "/^6[0-9]{8}$/";
-
-        $comprovacioTelefon = True;
-
-
-        if (preg_match($mobileregex, $telefon) == false) {
-            //echo '<p class="alert alert-danger ">Format telefon incorrecte</p>';
-            $comprovacioTelefon = false;
-        }
-
-        $query = $connection->prepare("SELECT * FROM client WHERE email=:email");
-        $query->bindParam("email", $email, PDO::PARAM_STR);
-        $query->execute();
-        if ($query->rowCount() > 0) {
-            echo '<p class="alert alert-danger">Hi ha un usuari amb aquet correu</p>';
-        }
-        $query2 = $connection->prepare("SELECT * FROM client WHERE dni=:dni");
-        $query2->bindParam("dni", $dni, PDO::PARAM_STR);
-        $query2->execute();
-        if ($query2->rowCount() > 0) {
-            echo '<p class="alert alert-danger">Hi ha un usuari amb aquet dni</p>';
-        }
-        $query3 = $connection->prepare("SELECT * FROM client WHERE usuari=:user");
-        $query3->bindParam("user", $user, PDO::PARAM_STR);
-        $query3->execute();
-        if ($query3->rowCount() > 0) {
-            echo '<p class="alert alert-danger ">Hi ha un usuari amb aquet login</p>';
-        }
-
-
-
-        if ($query->rowCount() == 0 and $query2->rowCount() == 0  and $query3->rowCount() == 0 and $comprovacioTelefon == true) {
-            $query = $connection->prepare("INSERT INTO client(dni,nom,cognom,telefon,email,usuari,pass) VALUES (:dni,:nom,:cognom,:telefon,:email,:usuari,:password_hash)");
-
-            $query->bindParam("dni", $dni, PDO::PARAM_STR);
-            $query->bindParam("nom", $nom, PDO::PARAM_STR);
-            $query->bindParam("cognom", $cognom, PDO::PARAM_STR);
-            $query->bindParam("telefon", $telefon, PDO::PARAM_STR);
-            $query->bindParam("email", $email, PDO::PARAM_STR);
-            $query->bindParam("usuari", $usuari, PDO::PARAM_STR);
-            $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
-
-            $result = $query->execute();
-            if ($result) {
-                echo '<p class="success">Usuari registrat</p>';
-            } else {
-                echo '<p class="error">Dades Incorrectes</p>';
-            }
-        }
-    }*/
-    ?>
-
     <script src="src/js/jquery-latest.min.js"></script>
     <script src="src/js/bootstrap-4.6.1/jquery3_6_0.slim.min.js"></script>
     <script src="src/js/bootstrap-4.6.1/bootstrap.min.js"></script>
+    
     <script>
         $(function() {
             $(".checkme").click(function(event) {
                 var x = $(this).is(':checked');
+                let inputs = event.target.closest('.checkbox-card').querySelectorAll('input');
                 if (x == true) {
                     $(this).parents(".checkbox-card").find('.passport-box').show();
+                    inputs.forEach((input) => { input.setAttribute('required','required')});
                 } else {
                     $(this).parents(".checkbox-card").find('.passport-box').hide();
+                    inputs.forEach((input) => { input.removeAttribute('required')});
                 }
             });
         })
 
         const btn = document.querySelector('button[type="submit"]');
-        const btnDelete = document.querySelector('.no-alert');
+        
         document.addEventListener('DOMContentLoaded', (evet) => {
             const alerts = document.querySelectorAll('.alert');
             if(alerts.length > 0){
