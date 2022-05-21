@@ -270,6 +270,14 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="aside_block aside-image d-none d-md-block">
+                        <img src="src/img/anuncis/formigal.jpg" alt="">
+                        <img src="src/img/anuncis/cursos.jpg" alt="">
+                        <img src="src/img/anuncis/nieve.png" alt="">
+                        <img src="src/img/anuncis/reyes.jpg" alt="">
+                        <img src="src/img/anuncis/valira.jpg" alt="">
+                        <img src="src/img/anuncis/andorra.jpg" alt="">
+                    </div>
                 </aside>
                 <div class="dark d-none"></div>
                 <div class="col-md-9">
@@ -283,6 +291,17 @@
             </div>
         </div>
     </section>
+
+    <div class="container">
+        <footer class="d-flex flex-wrap border-top pt-1 pb-3">
+            <p class="align-items-center col-md-6 d-flex justify-content-center justify-content-md-start mb-0 text-muted">© 1<sup>er</sup> de DAM - Projecte 3</p>
+            
+            <p class="align-items-center col-md-6 d-flex justify-content-center justify-content-md-end mb-0 nav">
+                <a href="https://github.com/Edgar84/" target="_blank" class="nav-link px-2 text-muted">Nazar</a> | 
+                <a href="https://github.com/NazarDAM1/" target="_blank" class="nav-link px-2 text-muted">Edgar</a>
+            </p>
+        </footer>
+    </div>
 
     <!-- Product modal -->
 

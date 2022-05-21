@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse justify-content-sm-end" id="burguerMenu">   
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="index.php">Lloguer</a>
+                            <a class="nav-link" href="index.php">Lloguer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ubicació</a>
@@ -76,25 +76,125 @@
         </div>
     </header>
     <div class="container">
-        <section>
+        <h1 class="page-title">Ficha personal</h1>
+        <section class="fitxa-section">
             <div class="client-fitxa">
                 <div class="row">
-                    <div class="col-6 col-md-4">
+                    <div class="col-6 col-md-4 client-fitxa_imatge">
                         <img src="src/img/avatar.png" alt="" class="client-fitxa_img">
                     </div>
-                    <div class="col-6 col-md-8">
+                    <div class="col-6 col-md-4">
                         <div class="client-fitxa_dades">
-                            <div class="name"><span>Nom: </span>teste</div>
-                            <div class="lastname"><span>Cognom: </span>teste</div>
-                            <div class="dni"><span>DNI: </span>12304567U</div>
-                            <div class="tel"><span>Telèfon: </span>645782696</div>
-                            <div class="mail"><span>Email: </span>teste@teste.com</div>
+                            <h2 class="client-fitxa_dades-title h4">Dades personals</h2>
+                            <div class="client-fitxa_dades-name"><span>Nom:</span> <span>teste</span><ln class="separator"></ln></div>
+                            <div class="client-fitxa_dades-lastname"><span>Cognom:</span> <span>teste</span><ln class="separator"></ln></div>
+                            <div class="client-fitxa_dades-dni"><span>DNI:</span> <span>12304567U</span><ln class="separator"></ln></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="client-fitxa_dades">
+                            <h2 class="client-fitxa_dades-title h4">Dades de contacte</h2>
+                            <div class="client-fitxa_dades-tel"><span>Telèfon:</span> <span>645782696</span><ln class="separator"></ln></div>
+                            <div class="client-fitxa_dades-mail"><span>Email:</span> <span>teste@teste.com</span><ln class="separator"></ln></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </div>                        
+        <h2 class="page-title">Histarial cursos</h1>
+        <section class="fitxa-section">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Curs</th>
+                        <th>Preu</th>
+                        <th>Descompte</th>
+                        <th>Preu final</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>14-02-2022</td>
+                        <td>Curs fer la croqueta</td>
+                        <td>250€</td>
+                        <td>15%</td>
+                        <td>212,5€</td>
+                    </tr>
+                    <tr>
+                        <td>14-02-2022</td>
+                        <td>Curs Snow</td>
+                        <td>8€</td>
+                        <td>0%</td>
+                        <td>16€</td>
+                    </tr>
+                    <tr>
+                        <td>17-04-2022</td>
+                        <td>Curs natació a la neu</td>
+                        <td>50€</td>
+                        <td>40%</td>
+                        <td>30€</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <h2 class="page-title">Histarial lloguer</h1>
+        <section class="fitxa-section">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Material</th>
+                        <th>Marca</th>
+                        <th>Model</th>
+                        <th>Talla</th>
+                        <th>Preu</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>14-02-2022</td>
+                        <td>Botes</td>
+                        <td>Atomic</td>
+                        <td>at-556</td>
+                        <td>39</td>
+                        <td>24.99€</td>
+                    </tr>
+                    <tr>
+                        <td>18-12-2021</td>
+                        <td>Pals</td>
+                        <td>Atomic</td>
+                        <td>at-5</td>
+                        <td>22m</td>
+                        <td>82.99€</td>
+                    </tr>
+                    <tr>
+                        <td>22-12-2021</td>
+                        <td>esquís</td>
+                        <td>Peltonen</td>
+                        <td>pt-pipi3</td>
+                        <td>153</td>
+                        <td>34.99€</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>   
+    
+    <div class="container">
+        <footer class="d-flex flex-wrap border-top pt-1 pb-3">
+            <p class="align-items-center col-md-6 d-flex justify-content-center justify-content-md-start mb-0 text-muted">© 1<sup>er</sup> de DAM - Projecte 3</p>
+            
+            <p class="align-items-center col-md-6 d-flex justify-content-center justify-content-md-end mb-0 nav">
+                <a href="https://github.com/Edgar84/" target="_blank" class="nav-link px-2 text-muted">Nazar</a> | 
+                <a href="https://github.com/NazarDAM1/" target="_blank" class="nav-link px-2 text-muted">Edgar</a>
+            </p>
+        </footer>
+    </div>
 
     <script src="src/js/bootstrap-4.6.1/jquery3_6_0.slim.min.js"></script>
     <script src="src/js/bootstrap-4.6.1/bootstrap.min.js"></script>

@@ -48,7 +48,7 @@ include ('./functions.php');
                         </li>
                         <?php } else {?>
                         <li class="nav-item">
-                            <a class="nav-link" href="fitxa.php"><i class="fa fa-user" aria-hidden="true"></i><?php echo ' ' .$_SESSION['nom'] . ' ' . $_SESSION['cognom'] ?></a>
+                            <a class="nav-link" href="fitxa.php"><i class="fa fa-user" aria-hidden="true"></i><?php echo ' ' .$_SESSION['usuari'] ?></a>
                         </li>
                         <?php }?>
                         
@@ -77,11 +77,22 @@ include ('./functions.php');
     </header>
     <section class="main">
         <div class="container">
+            <h1 class="page-title">Predicció del temps</h1>
             <div class="row results">
 
             </div>
         </div>
     </section>
+    <div class="container">
+        <footer class="d-flex flex-wrap border-top pt-1 pb-3">
+            <p class="align-items-center col-md-6 d-flex justify-content-center justify-content-md-start mb-0 text-muted">© 1<sup>er</sup> de DAM - Projecte 3</p>
+            
+            <p class="align-items-center col-md-6 d-flex justify-content-center justify-content-md-end mb-0 nav">
+                <a href="https://github.com/Edgar84/" target="_blank" class="nav-link px-2 text-muted">Nazar</a> | 
+                <a href="https://github.com/NazarDAM1/" target="_blank" class="nav-link px-2 text-muted">Edgar</a>
+            </p>
+        </footer>
+    </div>
 
     <script src="src/js/functions.js"></script>
     <script src="src/js/prediccio.js"></script>
