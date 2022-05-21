@@ -19,7 +19,7 @@
             
            $row=$query->fetch();
            $_SESSION["usuari"] = $row["usuari"];
-         
+           $_SESSION["dni"] = $row["dni"];
 
            header( 'Location: index.php' );
 

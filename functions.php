@@ -39,3 +39,13 @@ function mostrarProductes()
 <?php
     }
 }
+
+function mostrarCuros() {
+    include("./connectBD.php");
+    $dni = $_SESSION['dni'];
+    $sql = "CALL mostrarCursos('".$dni."');";
+    $statement = $connect->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    return $result;
+}
