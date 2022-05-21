@@ -1,7 +1,12 @@
 <?php
  session_start();
 
- include ('./functions.php');
+ require ('functions.php');
+ 
+//Mostrar errors php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -108,6 +113,7 @@
                     <thead>
                     <tr>
                         <th>Data</th>
+                        <th>Tipo</th>
                         <th>Curs</th>
                         <th>Preu</th>
                         <th>Descompte</th>
@@ -115,27 +121,16 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php $result = mostrarCuros(); foreach ($result as $row) { ?>
                     <tr>
-                        <td>14-02-2022</td>
-                        <td>Curs fer la croqueta</td>
-                        <td>250€</td>
-                        <td>15%</td>
-                        <td>212,5€</td>
+                        <td><?php echo $row['data']?></td>
+                        <td><?php echo $row['tipo']?></td>
+                        <td><?php echo $row['nom']?></td>
+                        <td><?php echo $row['preu'].'€'?></td>
+                        <td><?php echo $row['descompte']?></td>
+                        <td><?php echo $row['preu_final'].'€'?></td>
                     </tr>
-                    <tr>
-                        <td>14-02-2022</td>
-                        <td>Curs Snow</td>
-                        <td>8€</td>
-                        <td>0%</td>
-                        <td>16€</td>
-                    </tr>
-                    <tr>
-                        <td>17-04-2022</td>
-                        <td>Curs natació a la neu</td>
-                        <td>50€</td>
-                        <td>40%</td>
-                        <td>30€</td>
-                    </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>
