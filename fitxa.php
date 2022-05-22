@@ -106,7 +106,7 @@
                 </div>
             </div>
         </section>
-        <h2 class="page-title">Histarial cursos</h1>
+        <h2 class="page-title">Historial cursos</h1>
         <section class="fitxa-section">
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -135,7 +135,7 @@
                 </table>
             </div>
         </section>
-        <h2 class="page-title">Histarial lloguer</h1>
+        <h2 class="page-title">Historial lloguer</h1>
         <section class="fitxa-section">
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -150,30 +150,16 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php $result = mostrarMaterialLlogat(); foreach ($result as $row) { ?>
                     <tr>
-                        <td>14-02-2022</td>
-                        <td>Botes</td>
-                        <td>Atomic</td>
-                        <td>at-556</td>
-                        <td>39</td>
-                        <td>24.99€</td>
+                        <td><?php echo $row['data']?></td>
+                        <td><?php echo $row['material']?></td>
+                        <td><?php echo $row['marca']?></td>
+                        <td><?php echo $row['model']?></td>
+                        <td><?php echo $row['talla']?></td>
+                        <td><?php echo $row['preu'].'€'?></td>
                     </tr>
-                    <tr>
-                        <td>18-12-2021</td>
-                        <td>Pals</td>
-                        <td>Atomic</td>
-                        <td>at-5</td>
-                        <td>22m</td>
-                        <td>82.99€</td>
-                    </tr>
-                    <tr>
-                        <td>22-12-2021</td>
-                        <td>esquís</td>
-                        <td>Peltonen</td>
-                        <td>pt-pipi3</td>
-                        <td>153</td>
-                        <td>34.99€</td>
-                    </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>
