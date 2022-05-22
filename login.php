@@ -1,5 +1,7 @@
 
 <?php
+$errorUser  = ""; 
+
     session_start();
     include('connectBD.php');
     if (isset($_POST['login'])) {

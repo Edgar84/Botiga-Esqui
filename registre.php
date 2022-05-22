@@ -1,6 +1,12 @@
 <?php
 session_start();
 $errorDni = "";
+$errorEmail  = "";
+$errorUser  = "";
+$loginSuccess  = "";
+$errorTel = "";
+$errorFederacio  = "";
+$errorNumFamilia  = "";
 
 include('connectBD.php');
 // crear una fuccio en la mysql per verificar si es un usuari normal
@@ -34,7 +40,7 @@ if (isset($_POST['register'])) {
     if (preg_match($mobileregex, $telefon) == false) {
         $errorTel =  '<p class="alert alert-danger ">Format telefon incorrecte</p>';
         $comprovacioTelefon = false;
-    }else{
+    } else {
         $errorTel = "";
     }
 
@@ -43,8 +49,7 @@ if (isset($_POST['register'])) {
     $query->execute();
     if ($query->rowCount() > 0) {
         $errorEmail = ' <p class="alert alert-danger">Aquest Email ja està registrat</p>';
-    }
-    else{
+    } else {
         $errorEmail = "";
     }
     $query2 = $connect->prepare("SELECT * FROM client WHERE dni=:dni");
@@ -52,7 +57,7 @@ if (isset($_POST['register'])) {
     $query2->execute();
     if ($query2->rowCount() > 0) {
         $errorDni = '<p class="alert alert-danger">Hi ha un usuari amb aquet dni</p>';
-    }else{
+    } else {
         $errorDni = "";
     }
     $query3 = $connect->prepare("SELECT * FROM client WHERE usuari=:user");
@@ -60,30 +65,110 @@ if (isset($_POST['register'])) {
     $query3->execute();
     if ($query3->rowCount() > 0) {
         $errorUser = '<p class="alert alert-danger ">Aquest usuari ja existeix</p>';
-    }else{
+    } else {
         $errorUser = "";
     }
 
 
 
-    if ($query->rowCount() == 0 and $query2->rowCount() == 0  and $query3->rowCount() == 0 and $comprovacioTelefon == true) {
-        $query = $connect->prepare("INSERT INTO client(dni,nom,cognom,telefon,email,usuari,pass) VALUES (:dni,:nom,:cognom,:telefon,:email,:usuari,:password_hash)");
-        // crear functions familia numerosa federat una o altra
-        $query->bindParam("dni", $dni, PDO::PARAM_STR);
-        $query->bindParam("nom", $nom, PDO::PARAM_STR);
-        $query->bindParam("cognom", $cognom, PDO::PARAM_STR);
-        $query->bindParam("telefon", $telefon, PDO::PARAM_STR);
-        $query->bindParam("email", $email, PDO::PARAM_STR);
-        $query->bindParam("usuari", $user, PDO::PARAM_STR);
-        $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
-
-        $result = $query->execute();
-        if ($result) {
-            $loginSuccess = '<p class="alert alert-success">Usuari registrat</p>';
+    if ($num_federacio != ""){
+        $query4 = $connect->prepare("SELECT * FROM federat WHERE num_federacio=:num_federacio");
+        $query4->bindParam("num_federacio", $num_federacio, PDO::PARAM_STR);
+        $query4->execute();
+        if ($query4->rowCount() > 0) {
+            $errorFederacio = '<p class="alert alert-danger ">Aquest numero de federacio ja existeix</p>';
         } else {
-            $loginSuccess = '<p class="alert alert-danger">Dades Incorrectes</p>';
+            $errorFederacio = "";
         }
     }
+
+
+        if ($query->rowCount() == 0 and $query2->rowCount() == 0  and $query3->rowCount() == 0 and $comprovacioTelefon == true ) {
+            $query = $connect->prepare("INSERT INTO client(dni,nom,cognom,telefon,email,usuari,pass) VALUES (:dni,:nom,:cognom,:telefon,:email,:usuari,:password_hash)");
+            // crear functions familia numerosa federat una o altra
+            $query->bindParam("dni", $dni, PDO::PARAM_STR);
+            $query->bindParam("nom", $nom, PDO::PARAM_STR);
+            $query->bindParam("cognom", $cognom, PDO::PARAM_STR);
+            $query->bindParam("telefon", $telefon, PDO::PARAM_STR);
+            $query->bindParam("email", $email, PDO::PARAM_STR);
+            $query->bindParam("usuari", $user, PDO::PARAM_STR);
+            $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
+
+            $result = $query->execute();
+            if ($result) {
+                $loginSuccess = '<p class="alert alert-success">Usuari registrat</p>';
+            } else {
+                $loginSuccess = '<p class="alert alert-danger">Dades Incorrectes</p>';
+            }
+        }
+
+
+
+
+
+
+
+
+
+    // $query = $connect->prepare("SELECT * FROM federat WHERE num_federacio=:num_federacio");
+    // $query->bindParam("num_federacio", $num_federacio, PDO::PARAM_STR);
+    // $query->execute();
+    // if ($query->rowCount() > 0) {
+    //     $errorFederacio = '<p class="alert alert-danger ">Aquest numero de federacio ja existeix</p>';
+    // } else {
+    //     $errorFederacio = "";
+
+    //     $nivell = $_POST['nivell'];
+    //     $data_caducitat = $_POST['data_caducitat'];
+    //     $num_federacio = $_POST['num_federacio'];
+
+
+    //     $query = $connect->prepare("INSERT INTO client(dni,nivell,num_federacio,data_caducitat) VALUES (:dni,:nivell,:num_federacio,:data_caducitat)");
+
+    //     $query->bindParam("dni", $$dni, PDO::PARAM_STR);
+    //     $query->bindParam("nivell", $nivell, PDO::PARAM_STR);
+    //     $query->bindParam("num_federacio", $num_federacio, PDO::PARAM_STR);
+    //     $query->bindParam("data_caducitat", $data_caducitat, PDO::PARAM_STR);
+
+
+    //     $result = $query->execute();
+    // }
+
+
+
+
+
+
+    // $query2 = $connect->prepare("SELECT * FROM client WHERE usuari=:user");
+    // $query2->bindParam("user", $user, PDO::PARAM_STR);
+    // $query2->execute();
+    // if ($query2->rowCount() > 0) {
+    //     $errorNumFamilia = '<p class="alert alert-danger ">Aquest numero de familia ja existeix</p>';
+    // } else {
+    //     $errorNumFamilia = "";
+    // }
+
+
+
+
+
+
+
+
+
+    // if ($data_caducitat != ""){
+    //     $query = $connect->prepare("INSERT INTO dataa(datacol) VALUES (:data_caducitat)");
+    //     $query->bindParam("data_caducitat", $data_caducitat, PDO::PARAM_STR);
+
+
+    //     $result = $query->execute();
+    // }else{
+
+
+    // }
+
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -150,9 +235,10 @@ if (isset($_POST['register'])) {
                 </label>
             </div>
             <div class="passport-box passport-box-fed">
-                <input type="text" id="nivell" class="form-control" placeholder="Nivell" name="nivell">
-                <input type="date" id="data_caducitat" class="form-control" placeholder="Data Caducitat" name="data_caducitat">
-                <input type="text" id="num_federacio" class="form-control" placeholder="Num Federacio" name="num_federacio">
+                <input type="text" id="nivell" class="form-control" placeholder="Nivell" value="" name="nivell">
+                <input type="date" value="" id="data_caducitat" class="form-control" value="" placeholder="Data Caducitat" name="data_caducitat">
+                <input type="text" id="num_federacio" class="form-control" value="" placeholder="Num Federacio" name="num_federacio">
+                <?php echo $errorFederacio ?>
             </div>
 
         </div>
@@ -166,10 +252,11 @@ if (isset($_POST['register'])) {
                 </label>
             </div>
             <div class="passport-box passport-box-fam">
-                <input type="text" id="num_familia_numerosa" class="form-control" placeholder="Num Familia Numerosa" name="num_familia_numerosa" >
-                <input type="date" id="data_caducitat_familia" class="form-control" placeholder="Data Caducitat Familia" name="data_caducitat_familia">
+                <input type="text" id="num_familia_numerosa" class="form-control" value="" placeholder="Num Familia Numerosa" name="num_familia_numerosa">
+                <?php echo $errorNumFamilia ?>
+                <input type="date" id="data_caducitat_familia" class="form-control" value="" placeholder="Data Caducitat Familia" name="data_caducitat_familia">
             </div>
-        </div> 
+        </div>
 
         <?php echo $loginSuccess ?>
 
@@ -183,7 +270,7 @@ if (isset($_POST['register'])) {
     <script src="src/js/jquery-latest.min.js"></script>
     <script src="src/js/bootstrap-4.6.1/jquery3_6_0.slim.min.js"></script>
     <script src="src/js/bootstrap-4.6.1/bootstrap.min.js"></script>
-    
+
     <script>
         $(function() {
             $(".checkme").click(function(event) {
@@ -191,25 +278,30 @@ if (isset($_POST['register'])) {
                 let inputs = event.target.closest('.checkbox-card').querySelectorAll('input');
                 if (x == true) {
                     $(this).parents(".checkbox-card").find('.passport-box').show();
-                    inputs.forEach((input) => { input.setAttribute('required','required')});
+                    inputs.forEach((input) => {
+                        input.setAttribute('required', 'required')
+                    });
                 } else {
                     $(this).parents(".checkbox-card").find('.passport-box').hide();
-                    inputs.forEach((input) => { input.removeAttribute('required')});
+                    inputs.forEach((input) => {
+                        input.removeAttribute('required')
+                    });
                 }
             });
         })
 
         const btn = document.querySelector('button[type="submit"]');
-        
+
         document.addEventListener('DOMContentLoaded', (evet) => {
             const alerts = document.querySelectorAll('.alert');
-            if(alerts.length > 0){
+            if (alerts.length > 0) {
                 removeElems();
             }
         });
-        btn.addEventListener("click", function(){
+        btn.addEventListener("click", function() {
             location.reload();
         });
+
         function removeElems() {
             const alerts = document.querySelectorAll('.alert');
             setTimeout(function() {
@@ -218,8 +310,8 @@ if (isset($_POST['register'])) {
                 }
             }, 3000);
         }
-
     </script>
+
 
 
 
