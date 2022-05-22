@@ -49,3 +49,13 @@ function mostrarCuros() {
     $result = $statement->fetchAll();
     return $result;
 }
+
+function mostrarMaterialLlogat() {
+    include("./connectBD.php");
+    $dni = $_SESSION['dni'];
+    $sql = "CALL mostrarMaterial('".$dni."');";
+    $statement = $connect->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    return $result;
+}
