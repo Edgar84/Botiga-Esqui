@@ -613,10 +613,11 @@
     align-items: center;
 }
 .client-fitxa .client-fitxa_imatge img{
-    max-width: 150px;
+    max-width: 200px;
 }
 .client-fitxa .client-fitxa_dades {
     position: relative;
+    width: 100%;
 }
 .client-fitxa .client-fitxa_dades .client-fitxa_dades-title {
     margin-bottom: 20px;
@@ -644,6 +645,9 @@
     left: 0;
     right: 0;
     bottom: 6px;
+}
+.fitxa-section .table tr td:last-child {
+    text-align: right;
 }
 section.fitxa-section {
     padding: 20px 0;

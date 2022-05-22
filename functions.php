@@ -59,3 +59,13 @@ function mostrarMaterialLlogat() {
     $result = $statement->fetchAll();
     return $result;
 }
+
+function agafarDadesClient() {
+    include("./connectBD.php");
+    $dni = $_SESSION['dni'];
+    $sql = "select *, fam_num.data_caducitat as data_caducitat_fam, federat.data_caducitat as data_caducitat_fed from client left join fam_num on client.dni = fam_num.dni left join federat on client.dni = federat.dni where client.dni = '".$dni."';";
+    $statement = $connect->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    return $result;
+}

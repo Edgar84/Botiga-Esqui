@@ -85,23 +85,46 @@
         <section class="fitxa-section">
             <div class="client-fitxa">
                 <div class="row">
-                    <div class="col-6 col-md-4 client-fitxa_imatge">
+                    <div class="col-12 col-md-4 client-fitxa_imatge mb-4 mb-md-0">
                         <img src="src/img/avatar.png" alt="" class="client-fitxa_img">
                     </div>
-                    <div class="col-6 col-md-4">
-                        <div class="client-fitxa_dades">
-                            <h2 class="client-fitxa_dades-title h4">Dades personals</h2>
-                            <div class="client-fitxa_dades-name"><span>Nom:</span> <span>teste</span><ln class="separator"></ln></div>
-                            <div class="client-fitxa_dades-lastname"><span>Cognom:</span> <span>teste</span><ln class="separator"></ln></div>
-                            <div class="client-fitxa_dades-dni"><span>DNI:</span> <span>12304567U</span><ln class="separator"></ln></div>
+                    <div class="col-12 col-md-8">
+                        <?php $result = agafarDadesClient(); foreach ($result as $row) { ?>
+                        <div class="row mb-md-4">
+                            <div class="col-12 col-md-6">
+                                <div class="client-fitxa_dades mb-3 mb-md-0">
+                                    <h2 class="client-fitxa_dades-title h4">Dades personals</h2>
+                                    <div class="client-fitxa_dades-name"><span>Nom:</span> <span><?php echo $row['nom']?></span><ln class="separator"></ln></div>
+                                    <div class="client-fitxa_dades-lastname"><span>Cognom:</span> <span><?php echo $row['cognom']?></span><ln class="separator"></ln></div>
+                                    <div class="client-fitxa_dades-dni"><span>DNI:</span> <span><?php echo $row['dni']?></span><ln class="separator"></ln></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="client-fitxa_dades mb-3 mb-md-0">
+                                    <h2 class="client-fitxa_dades-title h4">Dades de contacte</h2>
+                                    <div class="client-fitxa_dades-tel"><span>Telèfon:</span> <span><?php echo $row['telefon']?></span><ln class="separator"></ln></div>
+                                    <div class="client-fitxa_dades-mail"><span>Email:</span> <span><?php echo $row['email']?></span><ln class="separator"></ln></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="client-fitxa_dades">
-                            <h2 class="client-fitxa_dades-title h4">Dades de contacte</h2>
-                            <div class="client-fitxa_dades-tel"><span>Telèfon:</span> <span>645782696</span><ln class="separator"></ln></div>
-                            <div class="client-fitxa_dades-mail"><span>Email:</span> <span>teste@teste.com</span><ln class="separator"></ln></div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="client-fitxa_dades mb-3 mb-md-0">
+                                    <h3 class="client-fitxa_dades-title h4"><span>Federat</span></h3>
+                                    <div class="client-fitxa_dades-tel"><span>Numero:</span> <span><?php echo $row['num_federacio'] != null ? $row['num_federacio'] : 'No federat' ?></span><ln class="separator"></ln></div>
+                                    <div class="client-fitxa_dades-tel"><span>Nivell:</span> <span><?php echo $row['nivell'] != null ? $row['nivell'] : 'No federat' ?></span><ln class="separator"></ln></div>
+                                    <div class="client-fitxa_dades-mail"><span>Data caducitat:</span> <span><?php echo $row['data_caducitat_fed'] != null ? $row['data_caducitat_fed'] : 'No federat' ?></span><ln class="separator"></ln></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="client-fitxa_dades mb-3 mb-md-0">
+                                    <h3 class="client-fitxa_dades-title h4"><span>Família numbrosa</span></h3>
+                                    <div class="client-fitxa_dades-tel"><span>Numero:</span> <span><?php echo $row['num_fam'] != null ? $row['num_fam'] : 'No família num.' ?></span><ln class="separator"></ln></div>
+                                    <div class="client-fitxa_dades-mail"><span>Data caducitat:</span> <span><?php echo $row['data_caducitat_fam'] != null ? $row['data_caducitat_fam'] : 'No família num.' ?></span><ln class="separator"></ln></div>
+                                </div>
+                            </div>
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
