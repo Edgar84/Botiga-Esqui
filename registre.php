@@ -207,9 +207,9 @@ if (isset($_POST['register'])) {
                 removeElems();
             }
         });
-        btn.addEventListener("click", function(){
+       /* btn.addEventListener("click", function(){
             location.reload();
-        });
+        });*/
         function removeElems() {
             const alerts = document.querySelectorAll('.alert');
             setTimeout(function() {
