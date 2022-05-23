@@ -1,6 +1,12 @@
 <?php
 session_start();
+$errorTel = "";
+$errorEmail = "";
 $errorDni = "";
+$errorUser = "";
+$errorFederacio = "";
+$isFederat = false;
+$isFamNum = false;
 
 include('connectBD.php');
 // crear una fuccio en la mysql per verificar si es un usuari normal
@@ -22,14 +28,8 @@ if (isset($_POST['register'])) {
     $num_familia_numerosa = $_POST['num_familia_numerosa'];
     $data_caducitat_familia = $_POST['data_caducitat_familia'];
 
-
-
-
-
     $mobileregex = "/^6[0-9]{8}$/";
-
     $comprovacioTelefon = True;
-
 
     if (preg_match($mobileregex, $telefon) == false) {
         $errorTel =  '<p class="alert alert-danger ">Format telefon incorrecte</p>';
@@ -43,10 +43,10 @@ if (isset($_POST['register'])) {
     $query->execute();
     if ($query->rowCount() > 0) {
         $errorEmail = ' <p class="alert alert-danger">Aquest Email ja està registrat</p>';
-    }
-    else{
+    } else{
         $errorEmail = "";
     }
+
     $query2 = $connect->prepare("SELECT * FROM client WHERE dni=:dni");
     $query2->bindParam("dni", $dni, PDO::PARAM_STR);
     $query2->execute();
@@ -55,6 +55,7 @@ if (isset($_POST['register'])) {
     }else{
         $errorDni = "";
     }
+
     $query3 = $connect->prepare("SELECT * FROM client WHERE usuari=:user");
     $query3->bindParam("user", $user, PDO::PARAM_STR);
     $query3->execute();
@@ -64,9 +65,25 @@ if (isset($_POST['register'])) {
         $errorUser = "";
     }
 
+    if ($num_federacio != ""){
+        $query4 = $connect->prepare("SELECT * FROM federat WHERE num_federacio=:num_federacio");
+        $query4->bindParam("num_federacio", $num_federacio, PDO::PARAM_STR);
+        $query4->execute();
+        if ($query4->rowCount() > 0) {
+            $errorFederacio = '<p class="alert alert-danger ">Aquest numero de federacio ja existeix</p>';
+            $isFederat = false;
+        } else {
+            $errorFederacio = "";
+            $isFederat = true;
+        }
+    }
 
+    if($num_familia_numerosa != ""){
+        $isFamNum = true;
+    }
 
-    if ($query->rowCount() == 0 and $query2->rowCount() == 0  and $query3->rowCount() == 0 and $comprovacioTelefon == true) {
+    if ($query->rowCount() == 0 and $query2->rowCount() == 0  and $query3->rowCount() == 0 and $comprovacioTelefon) {
+
         $query = $connect->prepare("INSERT INTO client(dni,nom,cognom,telefon,email,usuari,pass) VALUES (:dni,:nom,:cognom,:telefon,:email,:usuari,:password_hash)");
         // crear functions familia numerosa federat una o altra
         $query->bindParam("dni", $dni, PDO::PARAM_STR);
@@ -76,8 +93,28 @@ if (isset($_POST['register'])) {
         $query->bindParam("email", $email, PDO::PARAM_STR);
         $query->bindParam("usuari", $user, PDO::PARAM_STR);
         $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
-
+        
         $result = $query->execute();
+        
+        if($isFederat){
+            $query = $connect->prepare("INSERT INTO federat(dni,nivell,num_federacio,data_caducitat) VALUES (:dni,:nivell,:num_federacio,:data_caducitat)");
+            $query->bindParam("dni", $dni, PDO::PARAM_STR);
+            $query->bindParam("nivell", $nivell, PDO::PARAM_STR);
+            $query->bindParam("num_federacio", $num_federacio, PDO::PARAM_STR);
+            $query->bindParam("data_caducitat", $data_caducitat, PDO::PARAM_STR);
+            
+            $result = $query->execute();
+        }
+
+        if($isFamNum){
+            $query = $connect->prepare("INSERT INTO fam_num(dni,num_fam,data_caducitat) VALUES (:dni,:num_fam,:data_caducitat)");
+            $query->bindParam("dni", $dni, PDO::PARAM_STR);
+            $query->bindParam("num_fam", $num_familia_numerosa, PDO::PARAM_STR);
+            $query->bindParam("data_caducitat", $data_caducitat_familia, PDO::PARAM_STR);
+            
+            $result = $query->execute();
+        }
+        
         if ($result) {
             $loginSuccess = '<p class="alert alert-success">Usuari registrat</p>';
         } else {
@@ -121,7 +158,7 @@ if (isset($_POST['register'])) {
         <div class="row">
             <div class="col-12 col-md-6">
                 <label for="inputDni" class="sr-only">DNI</label>
-                <input type="text" id="inputDni" class="form-control" placeholder="DNI" maxlength="9" name="dni" required="required">
+                <input type="text" id="inputDni" class="form-control" placeholder="DNI" maxlength="9" name="dni" required="required" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))">
             </div>
             <div class="col-12 col-md-6">
                 <label for="inputTel" class="sr-only">Telefon</label>
@@ -151,10 +188,10 @@ if (isset($_POST['register'])) {
             </div>
             <div class="passport-box passport-box-fed">
                 <input type="text" id="nivell" class="form-control" placeholder="Nivell" name="nivell">
-                <input type="date" id="data_caducitat" class="form-control" placeholder="Data Caducitat" name="data_caducitat">
+                <input type="date" id="data_caducitat" class="form-control" placeholder="Data Caducitat" name="data_caducitat" value="">
                 <input type="text" id="num_federacio" class="form-control" placeholder="Num Federacio" name="num_federacio">
             </div>
-
+            <?php echo $errorFederacio ?>
         </div>
 
         <hr class="text-info">
@@ -167,7 +204,7 @@ if (isset($_POST['register'])) {
             </div>
             <div class="passport-box passport-box-fam">
                 <input type="text" id="num_familia_numerosa" class="form-control" placeholder="Num Familia Numerosa" name="num_familia_numerosa" >
-                <input type="date" id="data_caducitat_familia" class="form-control" placeholder="Data Caducitat Familia" name="data_caducitat_familia">
+                <input type="date" id="data_caducitat_familia" class="form-control" placeholder="Data Caducitat Familia" name="data_caducitat_familia" value="">
             </div>
         </div> 
 

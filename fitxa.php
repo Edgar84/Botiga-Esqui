@@ -96,7 +96,7 @@
                                     <h2 class="client-fitxa_dades-title h4">Dades personals</h2>
                                     <div class="client-fitxa_dades-name"><span>Nom:</span> <span><?php echo $row['nom']?></span><ln class="separator"></ln></div>
                                     <div class="client-fitxa_dades-lastname"><span>Cognom:</span> <span><?php echo $row['cognom']?></span><ln class="separator"></ln></div>
-                                    <div class="client-fitxa_dades-dni"><span>DNI:</span> <span><?php echo $row['dni']?></span><ln class="separator"></ln></div>
+                                    <div class="client-fitxa_dades-dni"><span>DNI:</span> <span><?php echo $row['userDni']?></span><ln class="separator"></ln></div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
