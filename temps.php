@@ -88,6 +88,7 @@ include ('./functions.php');
             <p class="align-items-center col-md-6 d-flex justify-content-center justify-content-md-start mb-0 text-muted">© 1<sup>er</sup> de DAM - Projecte 3</p>
             
             <p class="align-items-center col-md-6 d-flex justify-content-center justify-content-md-end mb-0 nav">
+                <a href="projecte3.duckdns.org" target="_blank" class="nav-link px-2 text-muted"><i class="fas fa-graduation-cap"></i> Moodle</a> |
                 <a href="https://github.com/Edgar84/" target="_blank" class="nav-link px-2 text-muted">Nazar</a> | 
                 <a href="https://github.com/NazarDAM1/" target="_blank" class="nav-link px-2 text-muted">Edgar</a>
             </p>
