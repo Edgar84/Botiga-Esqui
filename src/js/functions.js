@@ -160,7 +160,7 @@ function readData(e){
         const product = e.target.closest('.product-grid3');
         const infoProduct = {
             imatge: product.querySelector('.pic-1').src,
-            nom: product.querySelector('.title').textContent,
+            nom: product.querySelector('.title .title-show').textContent,
             descripcio: product.querySelector('.description').textContent,
             marca: product.querySelector('.brand').textContent,
             model: product.querySelector('.model').textContent,

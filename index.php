@@ -285,6 +285,7 @@
                         
                     <?php
                     mostrarProductes();
+                    mostrarKits();
                     ?>
                     </div> <!-- End row product-grid -->
                 </div>
